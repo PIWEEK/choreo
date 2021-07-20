@@ -1,0 +1,317 @@
+{
+	"info": {
+		"_postman_id": "f39b5838-392d-4e55-bc6c-7baeb153fb2b",
+		"name": "Choreo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Lists all MainCategories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{protocol}}://{{domain}}{{apiPath}}/main-categories?offset=0&sort=name&order=asc",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{domain}}{{apiPath}}"
+					],
+					"path": [
+						"main-categories"
+					],
+					"query": [
+						{
+							"key": "offset",
+							"value": "0"
+						},
+						{
+							"key": "sort",
+							"value": "name"
+						},
+						{
+							"key": "order",
+							"value": "asc"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Lists all MainCategories",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{protocol}}://{{domain}}{{apiPath}}/main-categories?offset=0&sort=id&order=desc",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{domain}}{{apiPath}}"
+							],
+							"path": [
+								"main-categories"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "sort",
+									"value": "id"
+								},
+								{
+									"key": "order",
+									"value": "desc"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Tue, 20 Jul 2021 20:12:39 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "content-encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "content-length",
+							"value": "960"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 6,\n        \"name\": \"Jardín\",\n        \"tasks\": [\n            {\n                \"id\": 51,\n                \"name\": \"Cortar el césped\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 52,\n                \"name\": \"Regar plantas\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 53,\n                \"name\": \"Recoger las hojas\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 54,\n                \"name\": \"Recoger/limpiar herramientas\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            }\n        ]\n    },\n    {\n        \"id\": 5,\n        \"name\": \"Mascotas\",\n        \"tasks\": [\n            {\n                \"id\": 46,\n                \"name\": \"Bañar a una mascota\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 47,\n                \"name\": \"Dar de comer\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 48,\n                \"name\": \"Pasear a una mascota\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 49,\n                \"name\": \"Veterinario\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 50,\n                \"name\": \"Recoger/limpiar accesorios\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            }\n        ]\n    },\n    {\n        \"id\": 4,\n        \"name\": \"Cuidar a otros\",\n        \"tasks\": [\n            {\n                \"id\": 42,\n                \"name\": \"Cuidar a otra persona\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 43,\n                \"name\": \"Bañar a otra persona\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 44,\n                \"name\": \"Dar de comer\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 45,\n                \"name\": \"Acompañar a gestiones a otra persona\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            }\n        ]\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Niños\",\n        \"tasks\": [\n            {\n                \"id\": 32,\n                \"name\": \"Recoger los juguetes\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 33,\n                \"name\": \"Llevar a los niños al cole\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 34,\n                \"name\": \"Llevar/recoger a los niños\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 35,\n                \"name\": \"Preparar/vestir a los niños\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 36,\n                \"name\": \"Ayudar a hacer los deberes\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 37,\n                \"name\": \"Dar de comer\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 38,\n                \"name\": \"Cuidar a los niños\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 39,\n                \"name\": \"Bañar a los niños\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 40,\n                \"name\": \"Dormir a los niños\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 41,\n                \"name\": \"Llevar a los niños al médico\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            }\n        ]\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Planificación y gestión\",\n        \"tasks\": [\n            {\n                \"id\": 26,\n                \"name\": \"Planificar menú\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 27,\n                \"name\": \"Planificar vacaciones / viajes\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 28,\n                \"name\": \"Gestión con proveedores de la casa (presupuestos, contratos…)\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 29,\n                \"name\": \"Gestión de tareas del colegio / matrícula etc\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 30,\n                \"name\": \"Gestionar material y actividades escolares.\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 31,\n                \"name\": \"Gestión de ropa de niños (comprar nueva, guardar la de temporada)\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            }\n        ]\n    },\n    {\n        \"id\": 1,\n        \"name\": \"Tareas del día a día\",\n        \"tasks\": [\n            {\n                \"id\": 1,\n                \"name\": \"Barrer / Pasar la aspiradora\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 2,\n                \"name\": \"Fregar el suelo\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 3,\n                \"name\": \"Hacer el desayuno\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 4,\n                \"name\": \"Hacer la comida\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 5,\n                \"name\": \"Hacer la merienda\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 6,\n                \"name\": \"Hacer la cena\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 7,\n                \"name\": \"Poner la lavadora\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 8,\n                \"name\": \"Tender la ropa\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 9,\n                \"name\": \"Recoger la ropa del tendedero y doblar\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 10,\n                \"name\": \"Limpiar el baño\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 11,\n                \"name\": \"Limpiar la cocina\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 12,\n                \"name\": \"Limpiar cristales\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 13,\n                \"name\": \"Planchar\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 14,\n                \"name\": \"Ordenar\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 15,\n                \"name\": \"Quitar el polvo\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 16,\n                \"name\": \"Lavar los platos\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 17,\n                \"name\": \"Poner el lavavajillas\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 18,\n                \"name\": \"Recoger el lavavajillas\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 19,\n                \"name\": \"Poner la mesa\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 20,\n                \"name\": \"Tirar la basura\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 21,\n                \"name\": \"Hacer la cama\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 22,\n                \"name\": \"Hacer la compra\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 23,\n                \"name\": \"Cambiar las sábanas\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 24,\n                \"name\": \"Arreglos en casa\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            },\n            {\n                \"id\": 25,\n                \"name\": \"Lavar el coche\",\n                \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n            }\n        ]\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Lists all MainTasks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{protocol}}://{{domain}}{{apiPath}}/main-tasks?offset=0&sort=name&order=asc",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{domain}}{{apiPath}}"
+					],
+					"path": [
+						"main-tasks"
+					],
+					"query": [
+						{
+							"key": "offset",
+							"value": "0"
+						},
+						{
+							"key": "sort",
+							"value": "name"
+						},
+						{
+							"key": "order",
+							"value": "asc"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Lists all MainTasks",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{protocol}}://{{domain}}{{apiPath}}/main-tasks?offset=0&sort=name&order=asc",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{domain}}{{apiPath}}"
+							],
+							"path": [
+								"main-tasks"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "sort",
+									"value": "name"
+								},
+								{
+									"key": "order",
+									"value": "asc"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Tue, 20 Jul 2021 20:11:28 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "content-encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "content-length",
+							"value": "868"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 45,\n        \"name\": \"Acompañar a gestiones a otra persona\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 24,\n        \"name\": \"Arreglos en casa\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 36,\n        \"name\": \"Ayudar a hacer los deberes\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 39,\n        \"name\": \"Bañar a los niños\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 43,\n        \"name\": \"Bañar a otra persona\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 46,\n        \"name\": \"Bañar a una mascota\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 1,\n        \"name\": \"Barrer / Pasar la aspiradora\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 23,\n        \"name\": \"Cambiar las sábanas\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 51,\n        \"name\": \"Cortar el césped\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 38,\n        \"name\": \"Cuidar a los niños\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 42,\n        \"name\": \"Cuidar a otra persona\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 44,\n        \"name\": \"Dar de comer\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 47,\n        \"name\": \"Dar de comer\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 37,\n        \"name\": \"Dar de comer\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 40,\n        \"name\": \"Dormir a los niños\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Fregar el suelo\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 30,\n        \"name\": \"Gestionar material y actividades escolares.\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 28,\n        \"name\": \"Gestión con proveedores de la casa (presupuestos, contratos…)\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 31,\n        \"name\": \"Gestión de ropa de niños (comprar nueva, guardar la de temporada)\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 29,\n        \"name\": \"Gestión de tareas del colegio / matrícula etc\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Hacer el desayuno\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 21,\n        \"name\": \"Hacer la cama\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 6,\n        \"name\": \"Hacer la cena\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 4,\n        \"name\": \"Hacer la comida\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 22,\n        \"name\": \"Hacer la compra\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 5,\n        \"name\": \"Hacer la merienda\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 25,\n        \"name\": \"Lavar el coche\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 16,\n        \"name\": \"Lavar los platos\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 12,\n        \"name\": \"Limpiar cristales\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 10,\n        \"name\": \"Limpiar el baño\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 11,\n        \"name\": \"Limpiar la cocina\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 33,\n        \"name\": \"Llevar a los niños al cole\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 41,\n        \"name\": \"Llevar a los niños al médico\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 34,\n        \"name\": \"Llevar/recoger a los niños\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 14,\n        \"name\": \"Ordenar\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 48,\n        \"name\": \"Pasear a una mascota\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 13,\n        \"name\": \"Planchar\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 26,\n        \"name\": \"Planificar menú\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 27,\n        \"name\": \"Planificar vacaciones / viajes\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 17,\n        \"name\": \"Poner el lavavajillas\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 7,\n        \"name\": \"Poner la lavadora\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 19,\n        \"name\": \"Poner la mesa\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 35,\n        \"name\": \"Preparar/vestir a los niños\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 15,\n        \"name\": \"Quitar el polvo\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 18,\n        \"name\": \"Recoger el lavavajillas\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 9,\n        \"name\": \"Recoger la ropa del tendedero y doblar\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 53,\n        \"name\": \"Recoger las hojas\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 50,\n        \"name\": \"Recoger/limpiar accesorios\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 54,\n        \"name\": \"Recoger/limpiar herramientas\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 32,\n        \"name\": \"Recoger los juguetes\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 52,\n        \"name\": \"Regar plantas\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 8,\n        \"name\": \"Tender la ropa\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 20,\n        \"name\": \"Tirar la basura\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    },\n    {\n        \"id\": 49,\n        \"name\": \"Veterinario\",\n        \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get a MainTask",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{protocol}}://{{domain}}{{apiPath}}/main-tasks/1",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{domain}}{{apiPath}}"
+					],
+					"path": [
+						"main-tasks",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get a MainTask",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{protocol}}://{{domain}}{{apiPath}}/main-tasks/2",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{domain}}{{apiPath}}"
+							],
+							"path": [
+								"main-tasks",
+								"2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Tue, 20 Jul 2021 20:11:19 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "content-length",
+							"value": "84"
+						},
+						{
+							"key": "connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 2,\n    \"name\": \"Fregar el suelo\",\n    \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get a MainCategory",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{protocol}}://{{domain}}{{apiPath}}/main-categories/1",
+					"protocol": "{{protocol}}",
+					"host": [
+						"{{domain}}{{apiPath}}"
+					],
+					"path": [
+						"main-categories",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get a MainCategory",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{protocol}}://{{domain}}{{apiPath}}/main-categories/1",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{domain}}{{apiPath}}"
+							],
+							"path": [
+								"main-categories",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Tue, 20 Jul 2021 20:10:45 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "content-encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "content-length",
+							"value": "443"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"name\": \"Tareas del día a día\",\n    \"tasks\": [\n        {\n            \"id\": 1,\n            \"name\": \"Barrer / Pasar la aspiradora\",\n            \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Fregar el suelo\",\n            \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Hacer el desayuno\",\n            \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n        },\n        {\n            \"id\": 4,\n            \"name\": \"Hacer la comida\",\n            \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n        },\n        {\n            \"id\": 5,\n            \"name\": \"Hacer la merienda\",\n            \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n        },\n        {\n            \"id\": 6,\n            \"name\": \"Hacer la cena\",\n            \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n        },\n        {\n            \"id\": 7,\n            \"name\": \"Poner la lavadora\",\n            \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n        },\n        {\n            \"id\": 8,\n            \"name\": \"Tender la ropa\",\n            \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n        },\n        {\n            \"id\": 9,\n            \"name\": \"Recoger la ropa del tendedero y doblar\",\n            \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n        },\n        {\n            \"id\": 10,\n            \"name\": \"Limpiar el baño\",\n            \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n        },\n        {\n            \"id\": 11,\n            \"name\": \"Limpiar la cocina\",\n            \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n        },\n        {\n            \"id\": 12,\n            \"name\": \"Limpiar cristales\",\n            \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n        },\n        {\n            \"id\": 13,\n            \"name\": \"Planchar\",\n            \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n        },\n        {\n            \"id\": 14,\n            \"name\": \"Ordenar\",\n            \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n        },\n        {\n            \"id\": 15,\n            \"name\": \"Quitar el polvo\",\n            \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n        },\n        {\n            \"id\": 16,\n            \"name\": \"Lavar los platos\",\n            \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n        },\n        {\n            \"id\": 17,\n            \"name\": \"Poner el lavavajillas\",\n            \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n        },\n        {\n            \"id\": 18,\n            \"name\": \"Recoger el lavavajillas\",\n            \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n        },\n        {\n            \"id\": 19,\n            \"name\": \"Poner la mesa\",\n            \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n        },\n        {\n            \"id\": 20,\n            \"name\": \"Tirar la basura\",\n            \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n        },\n        {\n            \"id\": 21,\n            \"name\": \"Hacer la cama\",\n            \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n        },\n        {\n            \"id\": 22,\n            \"name\": \"Hacer la compra\",\n            \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n        },\n        {\n            \"id\": 23,\n            \"name\": \"Cambiar las sábanas\",\n            \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n        },\n        {\n            \"id\": 24,\n            \"name\": \"Arreglos en casa\",\n            \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n        },\n        {\n            \"id\": 25,\n            \"name\": \"Lavar el coche\",\n            \"iconUrl\": \"http://localhost:8080/static/icon1.png\"\n        }\n    ]\n}"
+				}
+			]
+		}
+	]
+}

@@ -102,3 +102,26 @@ dist
 
 # TernJS port file
 .tern-port
+
+# IntelliJ Idea IDE
+.idea
+
+# backapi 
+back-api/dist/
+back-api/.DS_Store
+back-api/target/
+back-api/.gradle/
+back-api/.idea/
+back-api/build/
+back-api/classes/
+back-api/out/
+back-api/*.db
+back-api/*.log
+back-api/*.iml
+back-api/.classpath
+back-api/.factorypath
+back-api/bin/
+back-api/.settings/
+back-api/.project
+back-api/*/test/
+back-api/*/META-INF/
