@@ -1,0 +1,57 @@
+.NewBoard .header {
+  position: relative;
+  height: 50px;
+  justify-content: center;
+  padding: 0;
+}
+.header .close {
+  position: absolute;
+  right: 10px;
+}
+.header .arrow {
+  position: absolute;
+  left: -20px;
+}
+.NewBoard .grid {
+  padding: 0 1.125rem;
+  align-items: center;
+}
+.NewBoard label,
+.NewBoard input,
+.NewBoard button,
+.profile-form {
+  width: 100%;
+  margin-top: 0.825rem;
+}
+.NewBoard button {
+  width: 80%;
+}
+.header h2 {
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.375;
+  margin: 0;
+}
+.profile-form {
+  display: flex;
+  flex-direction: column;
+}
+.card {
+  display: flex;
+  margin-bottom: 12px;
+}
+.card input {
+  width: calc(100% - 3.6255rem);
+  margin-top: 0;
+}
+.card .avatar {
+  border-radius: 50%;
+  overflow: hidden;
+  height: 2.625rem;
+  width: 2.625rem;
+  margin-right: 1rem;
+}
+.avatar img {
+  width: 100%;
+  height: auto;
+}

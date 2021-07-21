@@ -1,29 +1,26 @@
-import logo from './logo.svg';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+import Home from "./pages/Home/Home"
+import NewBoard from "./pages/NewBoard/NewBoard"
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1 className="logo"><span>Choreo</span></h1>
-        <img src="./img/family.jpg" alt="familia abstracta" />
-        <ul className="features">
-          <li>Eliminar los conflictos por las tareas domesticas</li>
-          <li>Visibilizar la carga física y mental</li>
-          <li>Conseguir un reparto de tareas más justo y equilibrado</li>
-        </ul>
-      </header>
+    <Router>
       <div className="container">
-        <label>Escribe el código de acceso a tu tablero</label>
-        
-        <div className="code-form">
-          <input type="text"/>
-          <button>Entrar</button>
-        </div>
-        <hr/>
-        <button>Crear un tablero nuevo</button>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route exact path="/new-board">
+            <NewBoard />
+          </Route>
+        </Switch>
       </div>
-    </div>
+    </Router>
   );
 }
 
