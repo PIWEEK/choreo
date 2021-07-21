@@ -3,13 +3,14 @@ package kaleidos.piweek.domain;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
-
 import javax.validation.constraints.NotNull;
 
-
+/**
+ * The task a board may have
+ */
 @Entity
-@Table(name = "main_tasks")
-public class MainTask {
+@Table(name = "tasks")
+public class User {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
@@ -24,12 +25,11 @@ public class MainTask {
   
   @JsonBackReference
   @ManyToOne
-  @NotNull
   private MainCategory mainCategory;
   
-  public MainTask() {}
+  public User() {}
   
-  public MainTask(String name, String iconUrl, Float duration) {
+  public User(String name, String iconUrl, Float duration) {
     this.name = name;
     this.iconUrl = iconUrl;
     this.duration = duration;
