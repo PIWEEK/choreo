@@ -39,12 +39,12 @@ public class MainTaskController {
   }
   
   @Put
-  public HttpResponse update(@Body @Valid MainTasksUpdateCommand command) {
-    int numberOfEntitiesUpdated = mainTasksRepository.update(command.getId(), command.getName(), command.getIconUrl());
+  public HttpResponse update(@Body @Valid MainTasksUpdateCommand cmd) {
+    int numberOfEntitiesUpdated = mainTasksRepository.update(cmd.getId(), cmd.getName(), cmd.getIconUrl(), cmd.getDuration());
     
     return HttpResponse
              .noContent()
-             .header(HttpHeaders.LOCATION, location(command.getId()).getPath());
+             .header(HttpHeaders.LOCATION, location(cmd.getId()).getPath());
   }
   
   @Get(value = "/{?args*}")
@@ -54,20 +54,20 @@ public class MainTaskController {
   
   @Post
   public HttpResponse<MainTask> save(@Body @Valid MainTasksSaveCommand cmd) {
-    MainTask genre = mainTasksRepository.save(cmd.getName(), cmd.getIconUrl());
+    MainTask mainTask = mainTasksRepository.save(cmd.getName(), cmd.getIconUrl(), cmd.getDuration());
     
     return HttpResponse
-             .created(genre)
-             .headers(headers -> headers.location(location(genre.getId())));
+             .created(mainTask)
+             .headers(headers -> headers.location(location(mainTask.getId())));
   }
   
   @Post("/ex")
   public HttpResponse<MainTask> saveExceptions(@Body @Valid MainTasksSaveCommand cmd) {
     try {
-      MainTask genre = mainTasksRepository.saveWithException(cmd.getName(), cmd.getIconUrl());
+      MainTask mainTask = mainTasksRepository.saveWithException(cmd.getName(), cmd.getIconUrl(), cmd.getDuration());
       return HttpResponse
-               .created(genre)
-               .headers(headers -> headers.location(location(genre.getId())));
+               .created(mainTask)
+               .headers(headers -> headers.location(location(mainTask.getId())));
     } catch(PersistenceException e) {
       return HttpResponse.noContent();
     }

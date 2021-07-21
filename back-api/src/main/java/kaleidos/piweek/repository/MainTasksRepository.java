@@ -12,13 +12,13 @@ public interface MainTasksRepository {
   
   Optional<MainTask> findById(@NotNull Long id);
   
-  MainTask save(@NotBlank String name, String iconUrl);
+  MainTask save(@NotBlank String name, String iconUrl, Float duration);
   
-  MainTask saveWithException(@NotBlank String name, @NotBlank String iconUrl);
+  MainTask saveWithException(@NotBlank String name, @NotBlank String iconUrl, Float duration);
   
   void deleteById(@NotNull Long id);
   
   List<MainTask> findAll(@NotNull SortingAndOrderArguments args);
   
-  int update(@NotNull Long id, @NotBlank String name, @NotBlank String iconUrl);
+  int update(@NotNull Long id, @NotBlank String name, @NotBlank String iconUrl, Float duration);
 }

@@ -13,11 +13,15 @@ public class MainTasksSaveCommand {
   @NotBlank
   private String iconUrl;
   
+  private Float duration;
+  
   public MainTasksSaveCommand() {
   }
   
-  public MainTasksSaveCommand(String name, String iconUrl) {
+  public MainTasksSaveCommand(String name, String iconUrl, Float duration) {
     this.name = name;
+    this.iconUrl = iconUrl;
+    this.duration = duration;
   }
   
   public String getName() {
@@ -35,4 +39,8 @@ public class MainTasksSaveCommand {
   public void setIconUrl(String iconUrl) {
     this.iconUrl = iconUrl;
   }
+  
+  public Float getDuration() { return duration; }
+  
+  public void setDuration(Float duration) { this.duration = duration; }
 }

@@ -1,6 +1,7 @@
 package kaleidos.piweek.controller.command;
 
 import io.micronaut.core.annotation.Introspected;
+import io.micronaut.core.annotation.Nullable;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -16,12 +17,15 @@ public class MainTasksUpdateCommand {
   @NotBlank
   private String iconUrl;
   
+  private Float duration;
+  
   public MainTasksUpdateCommand() {
   }
   
-  public MainTasksUpdateCommand(Long id, String name) {
+  public MainTasksUpdateCommand(Long id, String name, Float duration) {
     this.id = id;
     this.name = name;
+    this.duration = duration;
   }
   
   public Long getId() {
@@ -47,4 +51,8 @@ public class MainTasksUpdateCommand {
   public void setIconUrl(String iconUrl) {
     this.iconUrl = iconUrl;
   }
+  
+  public Float getDuration() { return duration; }
+  
+  public void setDuration(Float duration) { this.duration = duration; }
 }

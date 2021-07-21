@@ -41,8 +41,8 @@ public class MainTaskRepositoryImpl implements MainTasksRepository {
   
   @Override
   @Transactional
-  public MainTask save(@NotBlank String name, @NotBlank String iconUrl) {
-    MainTask mainTask = new MainTask(name, iconUrl);
+  public MainTask save(@NotBlank String name, @NotBlank String iconUrl, Float duration) {
+    MainTask mainTask = new MainTask(name, iconUrl, duration);
     entityManager.persist(mainTask);
     return mainTask;
   }
@@ -69,18 +69,19 @@ public class MainTaskRepositoryImpl implements MainTasksRepository {
   @Override
   
   @Transactional
-  public int update(@NotNull Long id, @NotBlank String name, @NotBlank String iconUrl) {
+  public int update(@NotNull Long id, @NotBlank String name, @NotBlank String iconUrl, Float duration) {
     return entityManager.createQuery("UPDATE MainTask g SET name = :name, iconurl = :iconUrl where id = :id")
              .setParameter("name", name)
              .setParameter("id", id)
              .setParameter("iconUrl", iconUrl)
+             .setParameter("duration", duration)
              .executeUpdate();
   }
   
   @Override
   @Transactional
-  public MainTask saveWithException(@NotBlank String name, String iconUrl) {
-    save(name, iconUrl);
+  public MainTask saveWithException(@NotBlank String name, String iconUrl, Float duration) {
+    save(name, iconUrl, duration);
     throw new PersistenceException();
   }
 }

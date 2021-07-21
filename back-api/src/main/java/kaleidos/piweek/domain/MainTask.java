@@ -20,15 +20,18 @@ public class MainTask {
   @NotNull
   private String iconUrl;
   
+  private Float duration;
+  
   @JsonBackReference
   @ManyToOne
   private MainCategory mainCategory;
   
   public MainTask() {}
   
-  public MainTask(String name, String iconUrl) {
+  public MainTask(String name, String iconUrl, Float duration) {
     this.name = name;
     this.iconUrl = iconUrl;
+    this.duration = duration;
   }
   
   @Override
@@ -36,6 +39,7 @@ public class MainTask {
     return "MainTask{" +
              "id=" + id +
              ", name='" + name + '\'' +
+             ", duration='" + duration + '\'' +
              ", icon_url='" + iconUrl + '\'' +
              ", categoryId='" + mainCategory.getId() + '\'' +
              '}';
@@ -63,6 +67,12 @@ public class MainTask {
   
   public String getIconUrl() {
     return iconUrl;
+  }
+  
+  public Float getDuration() { return duration;
+  }
+  
+  public void setDuration(Float duration) { this.duration = duration;
   }
   
   public MainCategory getMainCategory() {
