@@ -1,6 +1,7 @@
 package kaleidos.piweek.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.DayOfWeek;
 import java.util.*;
 
@@ -14,8 +15,10 @@ public class Task {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
   
+  @NotNull
   private String name;
- 
+  
+  @NotNull
   private String iconUrl;
   
   private Float duration;
@@ -34,7 +37,8 @@ public class Task {
   
   public Task() {}
   
-  public Task(String name, String iconUrl, Float duration, Boolean isRecursive, MainTask mainTask, String period) {
+  public Task(@NotNull String name, @NotNull String iconUrl, Float duration, Boolean isRecursive, MainTask mainTask,
+              String period) {
     this.name = name;
     this.iconUrl = iconUrl;
     this.duration = duration;
@@ -93,7 +97,18 @@ public class Task {
   
   public void setRecursive(Boolean recursive) { isRecursive = recursive; }
   
-  public List<DayOfWeek> getPeriod() {
+  public List<Integer> getPeriod() {
+    Scanner scanner = new Scanner(period).useDelimiter(",");
+    List<Integer> list = new ArrayList<>();
+    
+    while (scanner.hasNextInt()) {
+      list.add(scanner.nextInt());
+    }
+    
+    return list;
+  }
+  
+  public List<DayOfWeek> getDayPeriod() {
     Scanner scanner = new Scanner(period).useDelimiter(",");
     List<DayOfWeek> list = new ArrayList<>();
     

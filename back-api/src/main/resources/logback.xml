@@ -14,5 +14,6 @@
     </root>
 
     <logger name="io.micronaut.data.query" level="trace" />
+    <logger name="kaleidos.piweek" level="INFO"/>
 
 </configuration>

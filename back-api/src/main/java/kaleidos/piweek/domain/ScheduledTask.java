@@ -19,6 +19,12 @@ public class ScheduledTask {
   private Long id;
   
   @NotNull
+  private String name;
+  
+  @NotNull
+  private String iconUrl;
+  
+  @NotNull
   private Date scheduled_at;
   
   private Boolean isDone;
@@ -46,7 +52,8 @@ public class ScheduledTask {
   
   public ScheduledTask() {}
   
-  public ScheduledTask(Date scheduled_at, Float duration, Boolean isDone,  String notes, Task task) {
+  public ScheduledTask(@NotNull String name, @NotNull String iconUrl, @NotNull Date scheduled_at, Float duration,
+                       Boolean isDone,  String notes, Task task) {
     this.scheduled_at = scheduled_at;
     this.duration = duration;
     this.isDone = isDone;

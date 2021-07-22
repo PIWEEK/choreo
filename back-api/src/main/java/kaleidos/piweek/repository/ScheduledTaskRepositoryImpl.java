@@ -4,7 +4,7 @@ import io.micronaut.core.annotation.Nullable;
 import io.micronaut.transaction.annotation.ReadOnly;
 import kaleidos.piweek.ApplicationConfiguration;
 import kaleidos.piweek.SortingAndOrderArguments;
-import kaleidos.piweek.domain.MainTask;
+import kaleidos.piweek.domain.ScheduledTask;
 import kaleidos.piweek.domain.Task;
 
 import javax.inject.Singleton;
@@ -14,19 +14,22 @@ import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+import java.util.Optional;
 
 
 @Singleton
-public class TaskRepositoryImpl implements TaskRepository {
+public class ScheduledTaskRepositoryImpl implements ScheduledTaskRepository {
   
   private final EntityManager entityManager;
   private final ApplicationConfiguration applicationConfiguration;
   
   private final static List<String> VALID_PROPERTY_NAMES = Arrays.asList("id", "name");
   
-  public TaskRepositoryImpl(EntityManager entityManager,
-                            ApplicationConfiguration applicationConfiguration) {
+  public ScheduledTaskRepositoryImpl(EntityManager entityManager,
+                                     ApplicationConfiguration applicationConfiguration) {
     this.entityManager = entityManager;
     this.applicationConfiguration = applicationConfiguration;
   }
@@ -34,21 +37,18 @@ public class TaskRepositoryImpl implements TaskRepository {
   @Override
   
   @ReadOnly
-  public Optional<Task> findById(@NotNull Long id) {
-    return Optional.ofNullable(entityManager.find(Task.class, id));
+  public Optional<ScheduledTask> findById(@NotNull Long id) {
+    return Optional.ofNullable(entityManager.find(ScheduledTask.class, id));
   }
   
   @Override
   @Transactional
-  public Task save(@NotBlank String name, String iconUrl, Float duration, Boolean isRecursive,
-                   @NotNull MainTask mainTask, @Nullable String period) {
-    if (period == null) {
-      period = "1,2,3,4,5,6,7";
-    }
-    Task task = new Task(name, iconUrl, duration, isRecursive, mainTask, period);
+  public ScheduledTask save(@NotNull String name, @NotNull String iconUrl, @NotNull Date scheduled_at, Float duration,
+                            Boolean isDone, String notes, Task task) {
+    ScheduledTask scheduledTask = new ScheduledTask(name, iconUrl, scheduled_at, duration, isDone, notes, task);
+    entityManager.persist(scheduledTask);
     
-    entityManager.persist(task);
-    return task;
+    return scheduledTask;
   }
   
   @Override
@@ -58,31 +58,25 @@ public class TaskRepositoryImpl implements TaskRepository {
   }
   
   @ReadOnly
-  public List<Task> findAll(@NotNull SortingAndOrderArguments args) {
-    String qlString = "SELECT mt FROM Task as mt";
+  public List<ScheduledTask> findAll(@NotNull SortingAndOrderArguments args) {
+    String qlString = "SELECT mt FROM ScheduledTask as mt";
     if (args.getOrder().isPresent() && args.getSort().isPresent() && VALID_PROPERTY_NAMES.contains(args.getSort().get())) {
       qlString += " ORDER BY mt." + args.getSort().get() + " " + args.getOrder().get().toLowerCase();
     }
-    TypedQuery<Task> query = entityManager.createQuery(qlString, Task.class);
+    TypedQuery<ScheduledTask> query = entityManager.createQuery(qlString, ScheduledTask.class);
     query.setMaxResults(args.getMax().orElseGet(applicationConfiguration::getMax));
     args.getOffset().ifPresent(query::setFirstResult);
     
     return query.getResultList();
   }
   
-  @ReadOnly
-  public Set<Task> findAllNotTodayScheduled(){
-    return new HashSet<Task>(entityManager.createQuery(
-      "select t from Task t FULL JOIN ScheduledTask st ON t.id = st.task.id " +
-        "where st.task.id IS NULL OR EXTRACT(DOY FROM st.scheduled_at) != EXTRACT(DOY FROM now())").getResultList());
-  }
-  
   @Override
+  
   @Transactional
-  public int update(@NotNull Long id, @NotBlank String name, String iconUrl, Float duration, Boolean isRecursive,
-                    String period) {
-    //TODO: change the qery to update all fields
-    return entityManager.createQuery("UPDATE Task g SET name = :name, iconurl = :iconUrl where id = :id")
+  public int update(@NotNull Long id, @NotNull String name, @NotNull String iconUrl, @NotNull Date scheduled_at, Float duration,
+                    Boolean isDone,  String notes, Task task) {
+    //TODO: change the query to update all fields
+    return entityManager.createQuery("UPDATE ScheduledTask g SET name = :name, iconurl = :iconUrl where id = :id")
              .setParameter("name", name)
              .setParameter("id", id)
              .setParameter("iconUrl", iconUrl)
@@ -92,9 +86,9 @@ public class TaskRepositoryImpl implements TaskRepository {
   
   @Override
   @Transactional
-  public Task saveWithException(@NotBlank String name, String iconUrl, Float duration, Boolean isRecursive,
-                                @NotNull MainTask mainTask, String period) {
-    save(name, iconUrl, duration, isRecursive, mainTask, period);
+  public ScheduledTask saveWithException(@NotNull String name, @NotNull String iconUrl, @NotNull Date scheduled_at, Float duration,
+                                         Boolean isDone,  String notes, Task task) {
+    save(name, iconUrl, scheduled_at, duration, isDone, notes, task);
     throw new PersistenceException();
   }
 }

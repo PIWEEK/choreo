@@ -5,11 +5,11 @@ import kaleidos.piweek.SortingAndOrderArguments;
 import kaleidos.piweek.domain.MainTask;
 import kaleidos.piweek.domain.Task;
 
-import javax.transaction.Transactional;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 public interface TaskRepository {
   
@@ -24,6 +24,8 @@ public interface TaskRepository {
   void deleteById(@NotNull Long id);
   
   List<Task> findAll(@NotNull SortingAndOrderArguments args);
+  
+  Set<Task> findAllNotTodayScheduled();
   
   int update(@NotNull Long id, @NotBlank String name, String iconUrl, Float duration, Boolean isRecursive,
              String period);
