@@ -24,7 +24,7 @@ public class Task {
   
   /**
    *  Day, or days of the week when the task is scheduled
-   *  Example: [1,7] would mean every Monday and Sunday; DayOfWeek.of(7) SUNDAY
+   *  Example: "1,7" would mean every Monday and Sunday; DayOfWeek.of(7) SUNDAY
    */
   private String period;
   
@@ -34,12 +34,13 @@ public class Task {
   
   public Task() {}
   
-  public Task(String name, String iconUrl, Float duration, Boolean isRecursive, MainTask mainTask) {
+  public Task(String name, String iconUrl, Float duration, Boolean isRecursive, MainTask mainTask, String period) {
     this.name = name;
     this.iconUrl = iconUrl;
     this.duration = duration;
     this.isRecursive = isRecursive;
     this.mainTask = mainTask;
+    this.period = period;
   }
   
   @Override

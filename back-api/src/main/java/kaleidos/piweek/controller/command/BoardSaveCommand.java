@@ -3,6 +3,9 @@ package kaleidos.piweek.controller.command;
 import io.micronaut.core.annotation.Introspected;
 
 import javax.validation.constraints.NotBlank;
+import java.util.List;
+
+import org.json.*;
 
 @Introspected
 public class BoardSaveCommand {
@@ -10,15 +13,24 @@ public class BoardSaveCommand {
   @NotBlank
   private String name;
   
-  @NotBlank
-  private String pinCode;
+  private List<Long> taskIds;
+  
+  private JSONArray people ;
   
   public BoardSaveCommand() {
   }
   
-  public BoardSaveCommand(String name, String pinCode) {
+  public BoardSaveCommand(String name, List<Long> taskIds, JSONArray people) {
+    JSONArray jsonArray = null;
+    try {
+      jsonArray = new JSONArray(people);
+    } catch (JSONException e) {
+      e.printStackTrace();
+    }
+  
     this.name = name;
-    this.pinCode = pinCode;
+    this.taskIds = taskIds;
+    this.people = jsonArray;
   }
   
   public String getName() {
@@ -29,11 +41,20 @@ public class BoardSaveCommand {
     this.name = name;
   }
   
-  public String getPinCode() {
-    return pinCode;
+  public List<Long> getTaskIds() {
+    return taskIds;
   }
   
-  public void setPinCode(String pinCode) {
-    this.pinCode = pinCode;
+  public void setTaskIds(List<Long> taskIds) {
+    this.taskIds = taskIds;
+  }
+  
+  public JSONArray getPeople() {
+    return people;
+  }
+  
+  public void setPeople(JSONArray people) {
+    this.people = people;
   }
 }
+

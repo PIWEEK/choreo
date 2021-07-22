@@ -122,4 +122,12 @@ public class ScheduledTask {
   public void setTask(Task task) {
     this.task = task;
   }
+  
+  public Set<Person> getAssignedPeople() {
+    return assignedPeople;
+  }
+  
+  public void setAssignedPeople(Set<Person> assignedPeople) {
+    this.assignedPeople = assignedPeople;
+  }
 }

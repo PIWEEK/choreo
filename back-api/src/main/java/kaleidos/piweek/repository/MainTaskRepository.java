@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.Optional;
 
-public interface MainTasksRepository {
+public interface MainTaskRepository {
   
   Optional<MainTask> findById(@NotNull Long id);
   

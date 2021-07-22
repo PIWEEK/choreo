@@ -1,7 +1,6 @@
 package kaleidos.piweek.domain;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import kaleidos.piweek.utils.RandomStrings;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -19,7 +18,7 @@ public class Board {
   private String name;
   
   @NotNull
-  private String pinCode = RandomStrings.randomString(5);
+  private String pinCode;
   
   @JsonManagedReference
   @OneToMany(fetch = FetchType.EAGER)
@@ -31,22 +30,22 @@ public class Board {
   @OneToMany(fetch = FetchType.EAGER)
   @OrderBy("id")
   @JoinColumn(name="board_id")
-  private Set<User> users = new HashSet<>();
+  private Set<Person> people = new HashSet<>();
   
   public Board() {}
   
-  public Board(String name, String pinCode, Set<Task> tasks, Set<User> users) {
+  public Board(String name, String pinCode, Set<Task> tasks, Set<Person> people) {
     this.id = id;
     this.name = name;
     this.pinCode = pinCode;
     this.tasks = tasks;
-    this.users = users;
+    this.people = people;
   }
   
-  public Board(String name, Set<Task> tasks, Set<User> users) {
+  public Board(String name, Set<Task> tasks, Set<Person> people) {
     this.name = name;
     this.tasks = tasks;
-    this.users = users;
+    this.people = people;
   }
   
   @Override
@@ -54,8 +53,9 @@ public class Board {
     return "Board{" +
              "id=" + id +
              ", name='" + name + '\'' +
+             ", pinCode='" + pinCode + '\'' +
+             ", people='" + people + '\'' +
              ", tasks='" + tasks + '\'' +
-             ", users='" + users + '\'' +
              '}';
   }
   
@@ -81,5 +81,21 @@ public class Board {
   
   public Set<Task> getTasks() {
     return tasks;
+  }
+  
+  public String getPinCode() {
+    return pinCode;
+  }
+  
+  public void setPinCode(String pinCode) {
+    this.pinCode = pinCode;
+  }
+  
+  public Set<Person> getPeople() {
+    return people;
+  }
+  
+  public void setPeople(Set<Person> people) {
+    this.people = people;
   }
 }

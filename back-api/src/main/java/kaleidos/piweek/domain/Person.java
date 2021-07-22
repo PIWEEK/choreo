@@ -1,14 +1,16 @@
 package kaleidos.piweek.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "person")
+@Table(name = "people")
 public class Person {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,10 +25,9 @@ public class Person {
   @JsonBackReference
   @ManyToMany
   @JoinTable(
-    name = "person_scheduledTask",
+    name = "people_scheduledTask",
     joinColumns = @JoinColumn(name = "person_id"),
     inverseJoinColumns = @JoinColumn(name = "scheduledTask_id"))
-  @NotNull
   private Set<ScheduledTask> scheduledTasks = new HashSet<>();
   
   @JsonBackReference
@@ -34,11 +35,18 @@ public class Person {
   @NotNull
   private Board board;
   
+  @JsonManagedReference
+  @OneToMany(fetch = FetchType.EAGER)
+  @OrderBy("id")
+  @JoinColumn(name="board_id")
+  private Set<Person> people = new HashSet<>();
+  
   public Person() {}
   
-  public Person(String name, String avatarUrl, Board board, Set<ScheduledTask> scheduledTasks) {
+  public Person(@NotBlank String name, @NotBlank String avatarId, @NotBlank Board board, Set<ScheduledTask> scheduledTasks) {
     this.name = name;
-    this.avatarUrl = avatarUrl;
+    //TODO: extract to a method
+    this.avatarUrl = "http://localhost:8080/static/avatars/" + avatarId + ".svg";
     this.scheduledTasks = scheduledTasks;
     this.board = board;
   }
@@ -93,4 +101,5 @@ public class Person {
   public void setBoard(Board board) {
     this.board = board;
   }
+  
 }

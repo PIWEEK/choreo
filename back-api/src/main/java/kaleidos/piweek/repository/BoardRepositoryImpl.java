@@ -4,8 +4,8 @@ import io.micronaut.transaction.annotation.ReadOnly;
 import kaleidos.piweek.ApplicationConfiguration;
 import kaleidos.piweek.SortingAndOrderArguments;
 import kaleidos.piweek.domain.Board;
+import kaleidos.piweek.domain.Person;
 import kaleidos.piweek.domain.Task;
-import kaleidos.piweek.domain.User;
 
 import javax.inject.Singleton;
 import javax.persistence.EntityManager;
@@ -43,7 +43,7 @@ public class BoardRepositoryImpl implements BoardRepository {
   
   @Override
   @Transactional
-  public Board save(@NotBlank String name, @NotBlank String pinCode, Set<Task> tasks, Set<User> users) {
+  public Board save(@NotBlank String name, @NotBlank String pinCode, Set<Task> tasks, Set<Person> users) {
     Board board = new Board(name, pinCode, tasks, users);
     entityManager.persist(board);
     return board;
@@ -70,19 +70,19 @@ public class BoardRepositoryImpl implements BoardRepository {
   
   @Override
   @Transactional
-  public int update(@NotNull Long id, @NotBlank String name, Set<Task> tasks, Set<User> users) {
-    return entityManager.createQuery("UPDATE Board g SET name = :name, tasks = :tasks, users = :users " +
+  public int update(@NotNull Long id, @NotBlank String name, Set<Task> tasks, Set<Person> people) {
+    return entityManager.createQuery("UPDATE Board g SET name = :name, tasks = :tasks, people = :people " +
                                        "where id = :id")
              .setParameter("id", id)
              .setParameter("name", name)
              .setParameter("tasks", tasks)
-             .setParameter("users", users)
+             .setParameter("people", people)
              .executeUpdate();
   }
   
   @Override
   @Transactional
-  public Board saveWithException(@NotBlank String name, @NotBlank String pinCode, Set<Task> tasks, Set<User> users) {
+  public Board saveWithException(@NotBlank String name, @NotBlank String pinCode, Set<Task> tasks, Set<Person> users) {
     save(name, pinCode, tasks, users);
     throw new PersistenceException();
   }

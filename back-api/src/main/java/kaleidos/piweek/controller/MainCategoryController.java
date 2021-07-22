@@ -39,7 +39,7 @@ public class MainCategoryController {
     return URI.create("/main-categories/" + id);
   }
   
-  protected URI location(MainCategory genre) {
-    return location(genre.getId());
+  protected URI location(MainCategory mainCategory) {
+    return location(mainCategory.getId());
   }
 }
