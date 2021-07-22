@@ -38,4 +38,12 @@ public class Phrases {
   public void setText(String text) {
     this.text = text;
   }
+  
+  public Long getId() {
+    return id;
+  }
+  
+  public void setId(Long id) {
+    this.id = id;
+  }
 }

@@ -14,7 +14,7 @@ import kaleidos.piweek.SortingAndOrderArguments;
 import kaleidos.piweek.controller.command.MainTasksSaveCommand;
 import kaleidos.piweek.controller.command.MainTasksUpdateCommand;
 import kaleidos.piweek.domain.MainTask;
-import kaleidos.piweek.repository.MainTasksRepository;
+import kaleidos.piweek.repository.MainTaskRepository;
 
 import javax.persistence.PersistenceException;
 import javax.validation.Valid;
@@ -25,22 +25,22 @@ import java.util.List;
 @Controller("/main-tasks")
 public class MainTaskController {
   
-  protected final MainTasksRepository mainTasksRepository;
+  protected final MainTaskRepository mainTaskRepository;
   
-  public MainTaskController(MainTasksRepository mainTasksRepository) {
-    this.mainTasksRepository = mainTasksRepository;
+  public MainTaskController(MainTaskRepository mainTaskRepository) {
+    this.mainTaskRepository = mainTaskRepository;
   }
   
   @Get("/{id}")
   public MainTask show(Long id) {
-    return mainTasksRepository
+    return mainTaskRepository
              .findById(id)
              .orElse(null);
   }
   
   @Put
   public HttpResponse update(@Body @Valid MainTasksUpdateCommand cmd) {
-    int numberOfEntitiesUpdated = mainTasksRepository.update(cmd.getId(), cmd.getName(), cmd.getIconUrl(), cmd.getDuration());
+    int numberOfEntitiesUpdated = mainTaskRepository.update(cmd.getId(), cmd.getName(), cmd.getIconUrl(), cmd.getDuration());
     
     return HttpResponse
              .noContent()
@@ -49,12 +49,12 @@ public class MainTaskController {
   
   @Get(value = "/{?args*}")
   public List<MainTask> list(@Valid SortingAndOrderArguments args) {
-    return mainTasksRepository.findAll(args);
+    return mainTaskRepository.findAll(args);
   }
   
   @Post
   public HttpResponse<MainTask> save(@Body @Valid MainTasksSaveCommand cmd) {
-    MainTask mainTask = mainTasksRepository.save(cmd.getName(), cmd.getIconUrl(), cmd.getDuration());
+    MainTask mainTask = mainTaskRepository.save(cmd.getName(), cmd.getIconUrl(), cmd.getDuration());
     
     return HttpResponse
              .created(mainTask)
@@ -64,7 +64,7 @@ public class MainTaskController {
   @Post("/ex")
   public HttpResponse<MainTask> saveExceptions(@Body @Valid MainTasksSaveCommand cmd) {
     try {
-      MainTask mainTask = mainTasksRepository.saveWithException(cmd.getName(), cmd.getIconUrl(), cmd.getDuration());
+      MainTask mainTask = mainTaskRepository.saveWithException(cmd.getName(), cmd.getIconUrl(), cmd.getDuration());
       return HttpResponse
                .created(mainTask)
                .headers(headers -> headers.location(location(mainTask.getId())));
@@ -75,7 +75,7 @@ public class MainTaskController {
   
   @Delete("/{id}")
   public HttpResponse delete(Long id) {
-    mainTasksRepository.deleteById(id);
+    mainTaskRepository.deleteById(id);
     return HttpResponse.noContent();
   }
   
@@ -83,7 +83,7 @@ public class MainTaskController {
     return URI.create("/main-tasks/" + id);
   }
   
-  protected URI location(MainTask genre) {
-    return location(genre.getId());
+  protected URI location(MainTask mainTask) {
+    return location(mainTask.getId());
   }
 }

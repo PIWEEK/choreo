@@ -8,7 +8,6 @@ import javax.transaction.Transactional;
 import io.micronaut.transaction.annotation.ReadOnly;
 import kaleidos.piweek.ApplicationConfiguration;
 import kaleidos.piweek.SortingAndOrderArguments;
-import kaleidos.piweek.domain.MainCategory;
 import kaleidos.piweek.domain.MainTask;
 
 import javax.validation.constraints.NotBlank;
@@ -19,7 +18,7 @@ import java.util.Optional;
 
 
 @Singleton
-public class MainTaskRepositoryImpl implements MainTasksRepository {
+public class MainTaskRepositoryImpl implements MainTaskRepository {
   
   private final EntityManager entityManager;
   private final ApplicationConfiguration applicationConfiguration;

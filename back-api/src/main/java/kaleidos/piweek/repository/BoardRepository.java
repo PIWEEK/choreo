@@ -2,8 +2,8 @@ package kaleidos.piweek.repository;
 
 import kaleidos.piweek.SortingAndOrderArguments;
 import kaleidos.piweek.domain.Board;
+import kaleidos.piweek.domain.Person;
 import kaleidos.piweek.domain.Task;
-import kaleidos.piweek.domain.User;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -15,13 +15,13 @@ public interface BoardRepository {
   
   Optional<Board> findById(@NotNull Long id);
   
-  Board save(@NotBlank String name, @NotBlank String pinCode, Set<Task> tasks, Set<User> users);
+  Board save(@NotBlank String name, @NotBlank String pinCode, Set<Task> tasks, Set<Person> users);
   
-  Board saveWithException(@NotBlank String name, @NotBlank String pinCode, Set<Task> tasks, Set<User> users);
+  Board saveWithException(@NotBlank String name, @NotBlank String pinCode, Set<Task> tasks, Set<Person> users);
   
   void deleteById(@NotNull Long id);
   
   List<Board> findAll(@NotNull SortingAndOrderArguments args);
   
-  int update(@NotNull Long id, @NotBlank String name, Set<Task> tasks, Set<User> users);
+  int update(@NotNull Long id, @NotBlank String name, Set<Task> tasks, Set<Person> people);
 }
