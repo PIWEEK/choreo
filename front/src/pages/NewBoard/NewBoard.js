@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import AvatarSelector from '../../components/AvatarSelector/AvatarSelector'
 import './NewBoard.css';
+import api from "../../services/api"
 
 const NewBoard = () => {
   const [step, setStep] = useState(0);
@@ -43,6 +44,10 @@ const NewBoard = () => {
     }
     setShowAvatars({visible:false, index: profiles.length-1})
   }
+  useEffect(()=>{
+    api.tasks.getAllTasksByCategory();
+
+  },[])
   return (
     <div className="NewBoard">
       <header className="header">
@@ -70,6 +75,7 @@ const NewBoard = () => {
         </div>
         <button  disabled={!profiles.length & profiles[0].name.length<3 } onClick={()=>setStep(step+1)}>Guardar</button>
       </div>}
+      {}
       {showAvatars.visible && <AvatarSelector handler={selectAvatars} />}
     </div>
   );
