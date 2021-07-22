@@ -1,5 +1,6 @@
 import axios from "axios";
 import Tasks from "./tasks";
+import Board from "./board";
 
 const baseURL = "http://localhost:8080/";
 
@@ -10,5 +11,6 @@ client.defaults.headers["Content-Type"] = "application/json";
 client.defaults.headers.Accept = "application/json";
 
 export default {
-  tasks: Tasks(client)  
+  tasks: Tasks(client),
+  board: Board(client)
 };

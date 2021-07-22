@@ -1,16 +1,19 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import AvatarSelector from '../../components/AvatarSelector/AvatarSelector'
+import TasksList from '../../components/TasksList/TasksList'
 import './NewBoard.css';
-import api from "../../services/api"
+import { useHistory } from "react-router-dom";
+import api from '../../services/api';
 
 const NewBoard = () => {
   const [step, setStep] = useState(0);
   const [boardName, setboardName] = useState('');
+  const [preselectedTasksList, setPreselectedTasksList] = useState([])
   const [showAvatars, setShowAvatars] = useState({visible:false, index:0});
-  const [profiles, setProfile] = useState([{avatar:Math.round(Math.random()*10) ,name: ''}])
+  const [profiles, setProfile] = useState([{avatarId:Math.round(Math.random()*10) ,name: ''}])
+  const history = useHistory();
   const addProfile = ()=> {
-    console.log('voy')
-    setProfile([...profiles, {avatar:Math.round(Math.random()*10) ,name: ''}])
+    setProfile([...profiles, {avatarId:Math.round(Math.random()*10) ,name: ''}])
   }
   const openAvatarSelector=(index)=>{
     setShowAvatars({visible:true, index})
@@ -28,6 +31,16 @@ const NewBoard = () => {
       setProfile([...profiles.slice(0,index), {...profiles[index], name: e.target.value}, ...profiles.slice(index+1)])
     }
   }
+  const createBoard = () => {
+    const filterProfiles =  profiles.filter(item=>item.name.length)
+    const newBoard = {
+      name: boardName,
+      people: filterProfiles,
+      taskIds: preselectedTasksList
+    }
+    console.log('Este es el board', newBoard)
+    api.board.createBoard(newBoard).then(data=>console.log('Board Creado', data))
+  }
   const selectAvatars = (index) => {
     console.log(index)
     if(profiles.length===1) {
@@ -37,26 +50,23 @@ const NewBoard = () => {
       return;
     } else if(showAvatars.index === profiles.length-1){
       console.log('El ultimo Perfil')
-      setProfile([...profiles.slice(0, showAvatars.index), {...profiles[showAvatars.index], avatar: index}])
+      setProfile([...profiles.slice(0, showAvatars.index), {...profiles[showAvatars.index], avatarId: index}])
     } else {
       console.log('Cualquier solo Perfil')
-      setProfile([...profiles.slice(0,showAvatars.index), {...profiles[showAvatars.index], avatar: index}, ...profiles.slice(showAvatars.index+1)])
+      setProfile([...profiles.slice(0,showAvatars.index), {...profiles[showAvatars.index], avatarId: index}, ...profiles.slice(showAvatars.index+1)])
     }
     setShowAvatars({visible:false, index: profiles.length-1})
   }
-  useEffect(()=>{
-    api.tasks.getAllTasksByCategory();
 
-  },[])
   return (
     <div className="NewBoard">
       <header className="header">
-        {!!step && <span className="arrow">&lt;</span>}
+        {!!step && <span className="arrow" onClick={()=>setStep(step-1)}>&lt;</span>}
         <h2>Crear un tablero</h2>
-        {!step &&<span className="close">x</span>}
+        {!step &&<span className="close" onClick={()=>history.push("/")}>x</span>}
       </header>
       {!step &&<div className="grid">
-        <label>Escribe el código de acceso a tu tablero</label>
+        <label>Ponle un nombre a tu tablero</label>
         <input type="text" value={boardName} onChange={(e) => setboardName(e.target.value)} />
         <button disabled={boardName.length < 4 } onClick={()=>setStep(step+1)}>Guardar</button>
       </div>}
@@ -66,7 +76,7 @@ const NewBoard = () => {
           {
             profiles.map((item, index) => (
               <div className="card" key={index}>
-                <div className="avatar" onClick={()=>openAvatarSelector(index)}><img src={`./img/avatars/avatar${item.avatar}.png`}></img></div>
+                <div className="avatar" onClick={()=>openAvatarSelector(index)}><img src={`./img/avatars/avatar${item.avatarId}.png`}></img></div>
                 <input type="text" value={item.name} onChange={(e)=>handlerEditName(e, index)}/>
               </div>
               )
@@ -75,7 +85,7 @@ const NewBoard = () => {
         </div>
         <button  disabled={!profiles.length & profiles[0].name.length<3 } onClick={()=>setStep(step+1)}>Guardar</button>
       </div>}
-      {}
+      {step===2 && <TasksList preselectedTasksList={preselectedTasksList} setPreselectedTasksList={setPreselectedTasksList} createBoard={createBoard}/>}
       {showAvatars.visible && <AvatarSelector handler={selectAvatars} />}
     </div>
   );
