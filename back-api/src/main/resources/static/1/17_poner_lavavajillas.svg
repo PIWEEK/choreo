@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="42mm"
+   height="42mm"
+   viewBox="0 0 42 42"
+   version="1.1"
+   id="svg6676"
+   inkscape:version="1.1 (ce6663b3b7, 2021-05-25)"
+   sodipodi:docname="18_poner_lavavajillas.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview6678"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.67081229"
+     inkscape:cx="270.56749"
+     inkscape:cy="257.15092"
+     inkscape:window-width="1866"
+     inkscape:window-height="1016"
+     inkscape:window-x="54"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs6673" />
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-33.430275,-80.366539)">
+    <g
+       id="g181878"
+       transform="matrix(0.07082219,0,0,0.07082219,36.14183,83.5195)"
+       style="display:inline">
+      <path
+         d="M 512,353.467 V 158.533 H 0 V 353.467 H 90.242 C 74.147,336.39 64.267,313.395 64.267,288.134 c 0,-52.567 42.767,-95.333 95.333,-95.333 17.563,0 34.028,4.779 48.173,13.098 14.57,-8.59 31.043,-13.098 48.226,-13.098 17.563,0 34.028,4.779 48.174,13.098 14.57,-8.59 31.043,-13.098 48.226,-13.098 52.567,0 95.333,42.767 95.333,95.333 0,25.262 -9.88,48.257 -25.975,65.333 z"
+         id="path181866" />
+      <path
+         d="M 512,128.533 V 15 C 512,6.716 505.284,0 497,0 H 15 C 6.716,0 0,6.716 0,15 V 128.533 Z M 400.6,64.267 c 8.273,0 15,6.72 15,15 0,8.272 -6.727,15 -15,15 -8.28,0 -15,-6.728 -15,-15 0,-8.28 6.72,-15 15,-15 z m -96.4,0 c 8.273,0 15,6.72 15,15 0,8.272 -6.727,15 -15,15 -8.28,0 -15,-6.728 -15,-15 0,-8.28 6.72,-15 15,-15 z m -96.4,0 c 8.273,0 15,6.72 15,15 0,8.272 -6.727,15 -15,15 -8.28,0 -15,-6.728 -15,-15 0,-8.28 6.72,-15 15,-15 z m -96.4,0 c 8.273,0 15,6.72 15,15 0,8.272 -6.727,15 -15,15 -8.28,0 -15,-6.728 -15,-15 0,-8.28 6.72,-15 15,-15 z"
+         id="path181868" />
+      <path
+         d="m 352.4,353.467 c 36.025,0 65.333,-29.309 65.333,-65.333 0,-36.024 -29.308,-65.334 -65.333,-65.334 -8.042,0 -15.857,1.436 -23.184,4.221 14.237,16.949 22.117,38.335 22.117,61.113 0,22.776 -7.881,44.161 -22.121,61.11 7.327,2.786 15.143,4.223 23.188,4.223 z"
+         id="path181870" />
+      <path
+         d="m 256,353.467 c 36.025,0 65.333,-29.309 65.333,-65.333 0,-36.024 -29.308,-65.334 -65.333,-65.334 -8.042,0 -15.858,1.436 -23.184,4.221 14.237,16.949 22.117,38.334 22.117,61.113 0,22.776 -7.881,44.161 -22.121,61.11 7.327,2.786 15.143,4.223 23.188,4.223 z"
+         id="path181872" />
+      <ellipse
+         cx="159.60001"
+         cy="288.133"
+         rx="65.334"
+         ry="65.333"
+         transform="matrix(0.383,-0.924,0.924,0.383,-167.677,325.321)"
+         id="ellipse181874" />
+      <path
+         d="M 0,383.467 V 497 c 0,8.284 6.716,15 15,15 h 482 c 8.284,0 15,-6.716 15,-15 V 383.467 Z"
+         id="path181876" />
+    </g>
+  </g>
+</svg>

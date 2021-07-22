@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="42mm"
+   height="42mm"
+   viewBox="0 0 42 42"
+   version="1.1"
+   id="svg198411"
+   inkscape:version="1.1 (ce6663b3b7, 2021-05-25)"
+   sodipodi:docname="27_planificar_menu.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview198413"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1.3925359"
+     inkscape:cx="207.17599"
+     inkscape:cy="204.30353"
+     inkscape:window-width="1866"
+     inkscape:window-height="1016"
+     inkscape:window-x="54"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs198408" />
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(4.8286834,-86.282867)">
+    <g
+       id="g68033"
+       transform="matrix(0.0807207,0,0,0.0807207,-4.0544656,87.057085)"
+       style="display:inline">
+      <g
+         id="g68025">
+        <path
+           d="m 117,90.565 v 316 H 0 v -20 z"
+           id="path68023" />
+      </g>
+      <path
+         d="m 287,378.985 v -73.2 l 146,-146.43 v -83.79 h -67 v -33 h -30 v 33 h -33 v -33 h -30 v 33 h -33 v -33 h -30 v 33 h -63 v 383 h 286 v -155.57 l -75.77,75.99 z m -85,-220.42 h 101 v 30 H 202 Z m 64,90 h -64 v -30 h 64 z"
+         id="path68027" />
+      <path
+         d="M 427.32,207.525 317,318.185 v 30.8 h 27.77 c 24.947,-25.022 87.637,-87.901 111.84,-112.17 z"
+         id="path68029" />
+      <path
+         d="m 501.13,192.165 -23.33,23.4 -29.29,-29.29 23.39,-23.46 z"
+         id="path68031" />
+    </g>
+  </g>
+</svg>

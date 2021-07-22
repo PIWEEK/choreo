@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="42mm"
+   height="42mm"
+   viewBox="0 0 42 42"
+   version="1.1"
+   id="svg231436"
+   inkscape:version="1.1 (ce6663b3b7, 2021-05-25)"
+   sodipodi:docname="35_vestir_kids.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview231438"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.67081229"
+     inkscape:cx="-106.58719"
+     inkscape:cy="286.96552"
+     inkscape:window-width="1866"
+     inkscape:window-height="1016"
+     inkscape:window-x="54"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs231433" />
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-133.21913,-72.478088)">
+    <g
+       id="g230885"
+       transform="matrix(0.07878029,0,0,0.07878029,134.05138,73.310319)"
+       style="display:inline">
+      <path
+         d="M 132.46,0 H 379.539 V 61.507 H 132.46 Z"
+         id="path230879" />
+      <path
+         d="M 429.459,430.745 379.54,401.924 V 91.507 H 271 v 84.344 c 13.026,5.763 22.119,18.792 22.119,33.952 v 217.64 c 0,15.556 8.299,29.93 21.77,37.707 l 71.029,41.009 c 20.825,12.023 47.454,4.888 59.478,-15.937 12.023,-20.825 4.888,-47.454 -15.937,-59.477 z"
+         id="path230881" />
+      <path
+         d="m 132.46,401.924 -49.919,28.821 c -20.825,12.023 -27.96,38.652 -15.937,59.478 12.023,20.825 38.653,27.96 59.478,15.937 l 71.029,-41.009 c 13.472,-7.778 21.77,-22.152 21.77,-37.707 v -217.64 c 0,-15.16 9.093,-28.189 22.119,-33.952 V 91.507 H 132.46 Z"
+         id="path230883" />
+    </g>
+  </g>
+</svg>

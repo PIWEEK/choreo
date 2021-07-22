@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="42mm"
+   height="42mm"
+   viewBox="0 0 42 42"
+   version="1.1"
+   id="svg200280"
+   inkscape:version="1.1 (ce6663b3b7, 2021-05-25)"
+   sodipodi:docname="30_gestion_cole.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview200282"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.67081229"
+     inkscape:cx="81.244785"
+     inkscape:cy="398.77027"
+     inkscape:window-width="1866"
+     inkscape:window-height="1016"
+     inkscape:window-x="54"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs200277" />
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-83.521912,-42.896416)">
+    <g
+       id="g68218"
+       transform="matrix(0.07375539,0,0,0.07375539,85.640532,45.015036)"
+       style="display:inline">
+      <g
+         id="g68145">
+        <g
+           id="g68143">
+          <path
+             d="m 150,271 c -33.076,0 -60,26.909 -60,60 v 15 c 0,8.276 6.738,15 15,15 h 90 c 8.262,0 15,-6.724 15,-15 v -15 c 0,-33.091 -26.924,-60 -60,-60 z"
+             id="path68141" />
+        </g>
+      </g>
+      <g
+         id="g68151">
+        <g
+           id="g68149">
+          <path
+             d="m 150,151 c -16.553,0 -30,13.462 -30,30 0,16.538 13.447,30 30,30 16.553,0 30,-13.462 30,-30 0,-16.538 -13.447,-30 -30,-30 z"
+             id="path68147" />
+        </g>
+      </g>
+      <g
+         id="g68157">
+        <g
+           id="g68155">
+          <path
+             d="M 467,61 H 45 C 20.186,61 0,81.186 0,106 v 300 c 0,24.814 20.186,45 45,45 h 422 c 24.814,0 45,-20.186 45,-45 V 106 C 512,81.186 491.814,61 467,61 Z m -150,90 h 90 c 19.773,0 19.854,30 0,30 h -90 c -19.773,0 -19.854,-30 0,-30 z m -77,195 c 0,24.814 -20.186,45 -45,45 H 105 C 80.186,391 60,370.814 60,346 v -15 c 0,-49.629 40.371,-90 90,-90 -33.076,0 -60,-26.909 -60,-60 0,-33.091 26.924,-60 60,-60 33.076,0 60,26.909 60,60 0,33.091 -26.924,60 -60,60 49.629,0 90,40.371 90,90 z m 197,15 H 287 c -19.773,0 -19.854,-30 0,-30 h 150 c 19.773,0 19.854,30 0,30 z m 0,-60 H 287 c -19.773,0 -19.854,-30 0,-30 h 150 c 19.773,0 19.854,30 0,30 z m 0,-60 H 287 c -19.773,0 -19.854,-30 0,-30 h 150 c 19.773,0 19.854,30 0,30 z"
+             id="path68153" />
+        </g>
+      </g>
+      <g
+         id="g68159" />
+      <g
+         id="g68161" />
+      <g
+         id="g68163" />
+      <g
+         id="g68165" />
+      <g
+         id="g68167" />
+      <g
+         id="g68169" />
+      <g
+         id="g68171" />
+      <g
+         id="g68173" />
+      <g
+         id="g68175" />
+      <g
+         id="g68177" />
+      <g
+         id="g68179" />
+      <g
+         id="g68181" />
+      <g
+         id="g68183" />
+      <g
+         id="g68185" />
+      <g
+         id="g68187" />
+    </g>
+  </g>
+</svg>

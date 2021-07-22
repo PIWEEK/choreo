@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="42mm"
+   height="42mm"
+   viewBox="0 0 42 42"
+   version="1.1"
+   id="svg282766"
+   inkscape:version="1.1 (ce6663b3b7, 2021-05-25)"
+   sodipodi:docname="51_limpieza_mascotas.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview282768"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.67081229"
+     inkscape:cx="315.28939"
+     inkscape:cy="294.41917"
+     inkscape:window-width="1866"
+     inkscape:window-height="1016"
+     inkscape:window-x="54"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs282763" />
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(51.370514,-84.705177)">
+    <g
+       id="g87284"
+       transform="matrix(0.07580604,0,0,0.07580604,-49.701054,87.305914)"
+       style="display:inline">
+      <path
+         d="m 30,485.43 h 450 c 0,-11.379 0,-80.692 0,-90 H 30 Z"
+         id="path87274" />
+      <path
+         d="m 0,305.43 h 510 v 60 H 0 Z"
+         id="path87276" />
+      <path
+         d="m 387.735,275.43 h 82.606 c -25.354,-37.253 -85.492,-48.722 -130.945,-43.91 26.939,15.215 33.973,29.168 48.339,43.91 z"
+         id="path87278" />
+      <path
+         d="m 91.787,133.466 24.12,37.99 -19.76,12.546 C 84,191.714 75.995,204.877 75.321,220.011 125.2,200.954 189.14,196.977 241.946,203.102 L 227.095,164.62 C 216.862,138.1 184.942,127.626 160.992,142.831 l -19.76,12.546 -24.119,-37.989 25.326,-16.08 L 78.12,0 2.141,48.24 66.46,149.546 Z"
+         id="path87280" />
+      <path
+         d="M 42.427,275.43 H 347.573 C 338.535,265.277 324.726,256.313 306.636,249.076 225.941,216.797 85.537,226.997 42.427,275.43 Z"
+         id="path87282" />
+    </g>
+  </g>
+</svg>

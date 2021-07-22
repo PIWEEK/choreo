@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="42mm"
+   height="42mm"
+   viewBox="0 0 42 42"
+   version="1.1"
+   id="svg202482"
+   inkscape:version="1.1 (ce6663b3b7, 2021-05-25)"
+   sodipodi:docname="31_gestion_material.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview202484"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.67081229"
+     inkscape:cx="696.91627"
+     inkscape:cy="231.80851"
+     inkscape:window-width="1866"
+     inkscape:window-height="1016"
+     inkscape:window-x="54"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs202479" />
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(79.374504,-87.071716)">
+    <g
+       id="g201906"
+       transform="matrix(0.07346169,0,0,0.07346169,-77.180697,89.265523)"
+       style="display:inline">
+      <path
+         d="M 90,391 H 241 V 91 C 241,74.431 227.569,61 211,61 H 150 V 331 H 90 c -16.569,0 -30,13.431 -30,30 0,16.567 13.431,30 30,30 z"
+         id="path201898" />
+      <path
+         d="M 120,301 V 31 H 105 C 80.147,31 60,51.147 60,76 V 309.344 C 68.86,304.177 79.023,301 90,301 Z"
+         id="path201900" />
+      <path
+         d="m 301,61 c -16.5,0 -30,13.5 -30,30 V 391 H 452 V 61 Z m 105,270 h -90 v -30 h 90 z m 0,-60 h -90 v -30 h 90 z m 0,-60 h -90 v -30 h 90 z m 0,-60 h -90 v -30 h 90 z"
+         id="path201902" />
+      <path
+         d="m 482,421 c -5.31,0 -373.514,0 -392,0 -32.902,0 -59.637,-26.614 -59.943,-59.447 L 30,361.586 V 121 H 0 v 330 h 196 c 8.276,0 15,6.724 15,15 v 15 h 90 v -15 c 0,-8.276 6.724,-15 15,-15 H 512 V 121 h -30 z"
+         id="path201904" />
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="42mm"
+   height="42mm"
+   viewBox="0 0 42 42"
+   version="1.1"
+   id="svg238793"
+   inkscape:version="1.1 (ce6663b3b7, 2021-05-25)"
+   sodipodi:docname="40_doctor_kids.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview238795"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.67081229"
+     inkscape:cx="422.62195"
+     inkscape:cy="406.22392"
+     inkscape:window-width="1866"
+     inkscape:window-height="1016"
+     inkscape:window-x="54"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs238790" />
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(6.800797,-40.924309)">
+    <g
+       id="g238640"
+       transform="matrix(0.0917514,0,0,0.0917514,-6.5366134,41.188493)">
+      <path
+         d="m 395.97,343.81 c -10.66,-14.46 -22.96,-27.3 -36.63,-38.34 l -20.59,24.51 c -5.727,-4.808 -17.248,-14.488 -22.97,-19.3 l 18.79,-22.37 C 320.047,279.721 304.26,272.914 287.78,268 l -61.7,78.1 -62.42,-77.93 C 114.423,282.758 72.408,315.268 45.73,359.12 L 75.74,377.2 60.26,402.9 31.96,385.86 C 23.04,406.77 17.66,429.04 16.03,452 h 133.14 l -5.03,-35.92 c 7.408,-1.037 22.314,-3.123 29.72,-4.16 l 5.61,40.08 h 183.61 l -15.31,-18.92 c 5.815,-4.7 17.511,-14.165 23.32,-18.87 L 401.67,452 h 34.3 c -2.78,-39.17 -16.47,-76.3 -40,-108.19 z m -263.14,25.42 c -5.704,-4.835 -17.19,-14.555 -22.9,-19.38 l 32.62,-38.54 22.9,19.38 z m 148.62,49.46 -22.9,-19.38 32.62,-38.54 c 5.704,4.835 17.19,14.555 22.9,19.38 z"
+         id="path238632" />
+      <path
+         d="m 251.91,265 h -52.34 l 26.35,32.9 z"
+         id="path238634" />
+      <path
+         d="m 158.93,135 c -2.634,-0.002 -5.311,-0.156 -7.9,-0.47 V 159 c 4.131,99.506 145.898,99.46 150,-0.001 V 119.88 L 246.94,99.71 c -11.33,7.82 -24.69,12.38 -38.68,13.15 C 196.07,126.77 177.95,135 158.93,135 Z"
+         id="path238636" />
+      <path
+         d="m 157.64,104.98 c 12.121,0.44 24.101,-5.319 30.7,-15.35 0,0 4.72,-7.14 4.72,-7.14 1.874,0.08 9.23,0.513 10.94,0.49 7.915,-0.011 15.575,-1.974 22.41,-5.79 4.968,-2.553 10.45,-7.993 14.64,-11.7 l 5.24,1.96 57.67,21.51 c 1.605,-27.562 -20.828,-52.13 -48.23,-55.61 0,0 -8.01,-1.17 -8.01,-1.17 L 244.3,24.84 C 237.27,9.75 221.45,0 204,0 184.13,0 166.66,12.63 161.51,30.71 l -2.41,8.46 -8.56,2.03 c -38.679,10.059 -32.145,61.326 7.1,63.78 z"
+         id="path238638" />
+    </g>
+  </g>
+</svg>

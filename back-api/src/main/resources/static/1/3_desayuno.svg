@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="42mm"
+   height="42mm"
+   viewBox="0 0 42 42"
+   version="1.1"
+   id="svg128186"
+   inkscape:version="1.1 (ce6663b3b7, 2021-05-25)"
+   sodipodi:docname="3_desayuno.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview128188"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.67081229"
+     inkscape:cx="509.08429"
+     inkscape:cy="251.188"
+     inkscape:window-width="1866"
+     inkscape:window-height="1016"
+     inkscape:window-x="54"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs128183" />
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(103.82868,-92.593628)">
+    <g
+       id="g87226"
+       transform="matrix(0.07434837,0,0,0.07434837,-101.86186,94.560445)">
+      <path
+         d="m 497,227 c -2.997,0 -292.248,0 -300.137,0 -8.284,0 -15,6.716 -15,15 v 120 c 0,57.897 47.103,105 105,105 h 60.173 c 57.897,0 105,-47.103 105,-105 V 346.999 C 485.104,346.979 512,320.072 512,287 v -45 c 0,-8.284 -6.716,-15 -15,-15 z m -15,60 c 0,16.53 -13.438,29.979 -29.963,29.999 V 257 H 482 Z"
+         id="path87222" />
+      <path
+         d="M 196.86,197 H 360 v -64.58 c 17.41,-6.18 29.9,-22.82 29.9,-42.32 V 89.9 C 389.9,65.14 369.76,45 345,45 H 45 C 20.19,45 0,65.19 0,90 c 0,19.56 12.54,36.24 30,42.43 V 361 c 0,24.81 20.19,45 45,45 h 84.22 c -4.77,-13.8 -7.36,-28.6 -7.36,-44 V 242 c 0,-24.81 20.19,-45 45,-45 z m -91.427,-16.45 c -8.284,0 -15,-6.716 -15,-15 0,-8.284 6.716,-15 15,-15 8.284,0 15,6.716 15,15 0,8.284 -6.716,15 -15,15 z M 150,135.5 c -8.284,0 -15,-6.716 -15,-15 0,-8.284 6.716,-15 15,-15 8.284,0 15,6.716 15,15 0,8.284 -6.716,15 -15,15 z"
+         id="path87224" />
+    </g>
+  </g>
+</svg>

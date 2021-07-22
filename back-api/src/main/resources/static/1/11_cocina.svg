@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="42.099499mm"
+   height="42mm"
+   viewBox="0 0 42.099499 42"
+   version="1.1"
+   id="svg182759"
+   inkscape:version="1.1 (ce6663b3b7, 2021-05-25)"
+   sodipodi:docname="12_cocina.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview182761"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.67081229"
+     inkscape:cx="251.188"
+     inkscape:cy="260.13238"
+     inkscape:window-width="1866"
+     inkscape:window-height="1016"
+     inkscape:window-x="54"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs182756" />
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-38.508022,-79.577682)">
+    <g
+       id="g181989"
+       transform="matrix(0.08005491,0,0,0.08005491,39.063714,80.083625)">
+      <g
+         id="g181930">
+        <g
+           id="g181928">
+          <g
+             id="g181926">
+            <path
+               d="M 0.12,512 H 211.021 V 391.057 H 0.12 Z m 46.126,-89.624 h 119.648 v 29.986 H 46.246 Z"
+               id="path181918" />
+            <path
+               d="M 0.12,361.071 H 211.021 V 242.127 H 0.12 Z m 46.126,-87.038 h 119.648 v 29.986 H 46.246 Z"
+               id="path181920" />
+            <path
+               d="M 241.007,512 H 511.88 V 242.127 H 241.007 Z M 420.923,274.033 h 29.986 v 30.726 h -29.986 z m -59.972,0 h 29.986 v 30.726 h -29.986 z m -59.972,0 h 29.986 v 30.726 h -29.986 z m 0,57.552 h 149.93 v 120.444 h -149.93 z"
+               id="path181922" />
+            <polygon
+               points="330.965,0 330.965,69.181 241.007,129.152 241.007,182.155 511.88,182.155 511.88,129.102 420.923,69.131 420.923,0 "
+               id="polygon181924" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="g181932" />
+      <g
+         id="g181934" />
+      <g
+         id="g181936" />
+      <g
+         id="g181938" />
+      <g
+         id="g181940" />
+      <g
+         id="g181942" />
+      <g
+         id="g181944" />
+      <g
+         id="g181946" />
+      <g
+         id="g181948" />
+      <g
+         id="g181950" />
+      <g
+         id="g181952" />
+      <g
+         id="g181954" />
+      <g
+         id="g181956" />
+      <g
+         id="g181958" />
+      <g
+         id="g181960" />
+    </g>
+  </g>
+</svg>
