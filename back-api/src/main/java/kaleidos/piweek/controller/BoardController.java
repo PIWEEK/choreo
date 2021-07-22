@@ -1,6 +1,7 @@
 package kaleidos.piweek.controller;
 
 import io.micronaut.http.HttpResponse;
+import io.micronaut.http.HttpStatus;
 import io.micronaut.http.annotation.Body;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
@@ -20,6 +21,7 @@ import kaleidos.piweek.repository.TaskRepository;
 import kaleidos.piweek.utils.JsonParser;
 import kaleidos.piweek.utils.RandomStrings;
 
+import javax.persistence.NoResultException;
 import javax.validation.Valid;
 import java.net.URI;
 import java.util.HashSet;
@@ -46,11 +48,15 @@ public class BoardController {
     this.personRepository = personRepository;
   }
   
-  @Get("/{id}")
-  public Board show(Long id) {
-    return boardRepository
-             .findById(id)
+  @Get("/{pinCode}")
+  public Board show(String pinCode) {
+    try {
+      return boardRepository
+             .findByPinCode(pinCode)
              .orElse(null);
+    } catch(NoResultException e) {
+      return null;
+    }
   }
   
   @Get(value = "/{?args*}")

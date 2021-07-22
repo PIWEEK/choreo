@@ -15,6 +15,8 @@ public interface BoardRepository {
   
   Optional<Board> findById(@NotNull Long id);
   
+  Optional<Board> findByPinCode(@NotNull String pinCode);
+  
   Board save(@NotBlank String name, @NotBlank String pinCode, Set<Task> tasks, Set<Person> users);
   
   Board saveWithException(@NotBlank String name, @NotBlank String pinCode, Set<Task> tasks, Set<Person> users);

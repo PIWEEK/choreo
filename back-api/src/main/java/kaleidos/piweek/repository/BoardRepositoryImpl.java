@@ -9,15 +9,13 @@ import kaleidos.piweek.domain.Task;
 
 import javax.inject.Singleton;
 import javax.persistence.EntityManager;
+import javax.persistence.LockModeType;
 import javax.persistence.PersistenceException;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 
 @Singleton
@@ -39,6 +37,15 @@ public class BoardRepositoryImpl implements BoardRepository {
   @ReadOnly
   public Optional<Board> findById(@NotNull Long id) {
     return Optional.ofNullable(entityManager.find(Board.class, id));
+  }
+  
+  @ReadOnly
+  public Optional<Board> findByPinCode(@NotNull String pinCode) {
+    return Optional.ofNullable(
+      entityManager
+        .createQuery("Select b FROM Board as b where pinCode = :pinCode", Board.class)
+        .setParameter("pinCode", pinCode)
+        .getSingleResult());
   }
   
   @Override
