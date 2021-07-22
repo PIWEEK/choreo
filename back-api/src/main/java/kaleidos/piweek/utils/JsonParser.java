@@ -18,7 +18,7 @@ public class JsonParser {
       for (int i = 0; i < people.length(); i++) {
         JSONObject personJson = people.getJSONObject(i);
         String personName = personJson.get("name").toString();
-        String personAvatarId = RandomStrings.randomNumber(1);
+        String personAvatarId = personJson.get("avatarId").toString();
         Person person = new Person(personName, personAvatarId, board, null);
         peopleSet.add(person);
       }
