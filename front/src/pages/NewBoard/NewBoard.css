@@ -36,6 +36,12 @@
   display: flex;
   flex-direction: column;
 }
+.profile-form button {
+  color: black;
+  font-size: 1.5rem;
+  background-color: #e9e9fb;
+  width: 100%;
+}
 .card {
   display: flex;
   margin-bottom: 12px;

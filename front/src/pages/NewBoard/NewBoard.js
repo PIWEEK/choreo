@@ -9,6 +9,19 @@ const NewBoard = () => {
     console.log('voy')
     setProfile([...profiles, {avatar:Math.round(Math.random()*10) ,name: ''}])
   }
+  const handlerEditName = (e, index) => {
+    if(profiles.length===1) {
+      console.log('Un solo Perfil')
+      setProfile([{...profiles[0], name: e.target.value}]);
+      return;
+    } else if(index === profiles.length-1){
+      console.log('El ultimo Perfil')
+      setProfile([...profiles.slice(0,index), {...profiles[index], name: e.target.value}])
+    } else {
+      console.log('Cualquier solo Perfil')
+      setProfile([...profiles.slice(0,index), {...profiles[index], name: e.target.value}, ...profiles.slice(index+1)])
+    }
+  }
   return (
     <div className="NewBoard">
       <header className="header">
@@ -28,11 +41,11 @@ const NewBoard = () => {
             profiles.map((item, index) => (
               <div className="card" key={index}>
                 <div className="avatar"><img src={`./img/avatars/avatar${item.avatar}.png`}></img></div>
-                <input type="text" />
+                <input type="text" value={item.name} onChange={(e)=>handlerEditName(e, index)}/>
               </div>
               )
             )}
-          <button  onClick={addProfile}>Guardar</button>
+          <button  onClick={addProfile}>+</button>
         </div>
         <button disabled={boardName.length < 3 } onClick={()=>setStep(step+1)}>Guardar</button>
       </div>}
