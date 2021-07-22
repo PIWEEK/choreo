@@ -46,7 +46,7 @@ public class Person {
   public Person(@NotBlank String name, @NotBlank String avatarId, @NotBlank Board board, Set<ScheduledTask> scheduledTasks) {
     this.name = name;
     //TODO: extract to a method
-    this.avatarUrl = "http://localhost:8080/static/avatars/" + avatarId + ".svg";
+    this.avatarUrl = "http://localhost:8080/static/a/avatar" + avatarId + ".png";
     this.scheduledTasks = scheduledTasks;
     this.board = board;
   }
