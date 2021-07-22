@@ -1,9 +1,11 @@
 import { useState } from 'react'
+import AvatarSelector from '../../components/AvatarSelector/AvatarSelector'
 import './NewBoard.css';
 
 const NewBoard = () => {
   const [step, setStep] = useState(0);
   const [boardName, setboardName] = useState('');
+  const [showAvatars, setSowAvatars] = useState(false);
   const [profiles, setProfile] = useState([{avatar:Math.round(Math.random()*10) ,name: ''}])
   const addProfile = ()=> {
     console.log('voy')
