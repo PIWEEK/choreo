@@ -7,6 +7,9 @@ micronaut:
         enabled: true
         mapping: "/static/**"
         paths: "classpath:static"
+  server:
+    cors:
+      enabled: false
 
 datasources:
   default:
