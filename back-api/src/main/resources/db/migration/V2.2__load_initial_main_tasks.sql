@@ -23,7 +23,7 @@ INSERT INTO main_tasks (id, name, iconUrl, duration, maincategory_id) VALUES
     (21, 'Hacer la cama', 'http://localhost:8080/static/1/21_cama.svg', 5, 1),
     (22, 'Cambiar sábanas', 'http://localhost:8080/static/1/22_sabanas.svg', 10, 1),
     (23, 'Hacer la compra', 'http://localhost:8080/static/1/23_compra.svg', 60, 1),
-    (24, 'Arreglos en casa', 'http://localhost:8080/static/124_arreglos.svg/', 15, 1),
+    (24, 'Arreglos en casa', 'http://localhost:8080/static/1/24_arreglos.svg', 15, 1),
     (25, 'Lavar el coche', 'http://localhost:8080/static/1/25_lavar_coche.svg', 15, 1),
     (26, 'Limpiar el baño', 'http://localhost:8080/static/1/26_wc.svg', 20, 1),
 
