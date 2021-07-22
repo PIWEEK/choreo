@@ -1,3 +1,6 @@
+.NewBoard {
+  position: relative;
+}
 .NewBoard .header {
   position: relative;
   height: 50px;
