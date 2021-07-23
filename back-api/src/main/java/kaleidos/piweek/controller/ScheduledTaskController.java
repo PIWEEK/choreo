@@ -43,7 +43,7 @@ public class ScheduledTaskController {
                .findByPinCode(pinCodeId)
                .orElse(null);
   
-      return scheduledTaskRepository.findAllByDate(date, args);
+      return scheduledTaskRepository.findAllByDate(date, board, args);
     } catch(NoResultException e) {
       return null;
     }
