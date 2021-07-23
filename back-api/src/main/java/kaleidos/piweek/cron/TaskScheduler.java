@@ -14,6 +14,7 @@ import kaleidos.piweek.repository.TaskRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.*;
@@ -59,7 +60,7 @@ public class TaskScheduler {
           for(Task task : boardTasks) {
             if (task.getPeriod().contains(today) && notYetScheduledTasksIds.contains(task.getId())) {
               ScheduledTask scheduledTask = scheduledTaskRepository
-                                              .save(task.getName(), task.getIconUrl(), new Date(),
+                                              .save(task.getName(), task.getIconUrl(), LocalDateTime.now(),
                                                 task.getDuration(), false, null, task);
               LOG.info("        Scheduling task{} : {}", task.getId(), now);
               }

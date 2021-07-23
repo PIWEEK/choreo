@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.DayOfWeek;
+import java.time.LocalDateTime;
 import java.util.*;
 
 /**
@@ -25,7 +26,7 @@ public class ScheduledTask {
   private String iconUrl;
   
   @NotNull
-  private Date scheduled_at;
+  private LocalDateTime scheduled_at;
   
   private Boolean isDone;
   
@@ -52,7 +53,7 @@ public class ScheduledTask {
   
   public ScheduledTask() {}
   
-  public ScheduledTask(@NotNull String name, @NotNull String iconUrl, @NotNull Date scheduled_at, Float duration,
+  public ScheduledTask(@NotNull String name, @NotNull String iconUrl, @NotNull LocalDateTime scheduled_at, Float duration,
                        Boolean isDone,  String notes, Task task) {
     this.scheduled_at = scheduled_at;
     this.duration = duration;
@@ -82,11 +83,11 @@ public class ScheduledTask {
     this.id = id;
   }
   
-  public Date getScheduled_at() {
+  public LocalDateTime getScheduled_at() {
     return scheduled_at;
   }
   
-  public void setScheduled_at(Date scheduled_at) {
+  public void setScheduled_at(LocalDateTime scheduled_at) {
     this.scheduled_at = scheduled_at;
   }
   

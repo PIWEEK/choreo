@@ -12,10 +12,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceException;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDateTime;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -43,8 +42,8 @@ public class ScheduledTaskRepositoryImpl implements ScheduledTaskRepository {
   
   @Override
   @Transactional
-  public ScheduledTask save(@NotNull String name, @NotNull String iconUrl, @NotNull Date scheduled_at, Float duration,
-                            Boolean isDone, String notes, Task task) {
+  public ScheduledTask save(@NotNull String name, @NotNull String iconUrl, @NotNull LocalDateTime scheduled_at,
+                            Float duration,Boolean isDone, String notes, Task task) {
     ScheduledTask scheduledTask = new ScheduledTask(name, iconUrl, scheduled_at, duration, isDone, notes, task);
     entityManager.persist(scheduledTask);
     
@@ -70,10 +69,29 @@ public class ScheduledTaskRepositoryImpl implements ScheduledTaskRepository {
     return query.getResultList();
   }
   
+  @ReadOnly
+  public List<ScheduledTask> findAllByDate(@NotNull LocalDateTime date, @NotNull SortingAndOrderArguments args) {
+    int dayOfTheYear = date.getDayOfYear();
+    int year = date.getYear();
+    
+    String qlString = "SELECT st FROM ScheduledTask as st WHERE " +
+                        "EXTRACT(DOY FROM st.scheduled_at) = " + dayOfTheYear + " AND " +
+                        "EXTRACT(YEAR FROM st.scheduled_at) = " + year;
+    if (args.getOrder().isPresent() && args.getSort().isPresent() && VALID_PROPERTY_NAMES.contains(args.getSort().get())) {
+      qlString += " ORDER BY st." + args.getSort().get() + " " + args.getOrder().get().toLowerCase();
+    }
+    TypedQuery<ScheduledTask> query = entityManager.createQuery(qlString, ScheduledTask.class);
+    query.setMaxResults(args.getMax().orElseGet(applicationConfiguration::getMax));
+    args.getOffset().ifPresent(query::setFirstResult);
+    
+    return query.getResultList();
+  }
+  
   @Override
   
   @Transactional
-  public int update(@NotNull Long id, @NotNull String name, @NotNull String iconUrl, @NotNull Date scheduled_at, Float duration,
+  public int update(@NotNull Long id, @NotNull String name, @NotNull String iconUrl,
+                    @NotNull LocalDateTime scheduled_at, Float duration,
                     Boolean isDone,  String notes, Task task) {
     //TODO: change the query to update all fields
     return entityManager.createQuery("UPDATE ScheduledTask g SET name = :name, iconurl = :iconUrl where id = :id")
@@ -86,7 +104,8 @@ public class ScheduledTaskRepositoryImpl implements ScheduledTaskRepository {
   
   @Override
   @Transactional
-  public ScheduledTask saveWithException(@NotNull String name, @NotNull String iconUrl, @NotNull Date scheduled_at, Float duration,
+  public ScheduledTask saveWithException(@NotNull String name, @NotNull String iconUrl,
+                                         @NotNull LocalDateTime scheduled_at, Float duration,
                                          Boolean isDone,  String notes, Task task) {
     save(name, iconUrl, scheduled_at, duration, isDone, notes, task);
     throw new PersistenceException();
