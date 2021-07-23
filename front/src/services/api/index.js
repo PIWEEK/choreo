@@ -8,6 +8,7 @@ export const client = axios.create({});
 
 client.defaults.baseURL = baseURL;
 client.defaults.headers["Content-Type"] = "application/json";
+client.defaults.headers["Access-Control-Allow-Origin"]="false";
 client.defaults.headers.Accept = "application/json";
 
 export default {

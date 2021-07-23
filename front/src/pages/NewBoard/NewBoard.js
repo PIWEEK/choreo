@@ -20,14 +20,11 @@ const NewBoard = () => {
   }
   const handlerEditName = (e, index) => {
     if(profiles.length===1) {
-      console.log('Un solo Perfil')
       setProfile([{...profiles[0], name: e.target.value}]);
       return;
     } else if(index === profiles.length-1){
-      console.log('El ultimo Perfil')
       setProfile([...profiles.slice(0,index), {...profiles[index], name: e.target.value}])
     } else {
-      console.log('Cualquier solo Perfil')
       setProfile([...profiles.slice(0,index), {...profiles[index], name: e.target.value}, ...profiles.slice(index+1)])
     }
   }
@@ -35,24 +32,19 @@ const NewBoard = () => {
     const filterProfiles =  profiles.filter(item=>item.name.length)
     const newBoard = {
       name: boardName,
-      people: filterProfiles,
+      people: JSON.stringify(filterProfiles),
       taskIds: preselectedTasksList
     }
-    console.log('Este es el board', newBoard)
-    api.board.createBoard(newBoard).then(data=>console.log('Board Creado', data))
+    api.board.createBoard(newBoard).then(data=>history.push(`/board/${data.pinCode}/true`))
   }
   const selectAvatars = (index) => {
-    console.log(index)
     if(profiles.length===1) {
-      console.log('Un solo Perfil')
       setProfile([{...profiles[0], avatar: index}]);
       setShowAvatars({visible:false, index: profiles.length-1})
       return;
     } else if(showAvatars.index === profiles.length-1){
-      console.log('El ultimo Perfil')
       setProfile([...profiles.slice(0, showAvatars.index), {...profiles[showAvatars.index], avatarId: index}])
     } else {
-      console.log('Cualquier solo Perfil')
       setProfile([...profiles.slice(0,showAvatars.index), {...profiles[showAvatars.index], avatarId: index}, ...profiles.slice(showAvatars.index+1)])
     }
     setShowAvatars({visible:false, index: profiles.length-1})

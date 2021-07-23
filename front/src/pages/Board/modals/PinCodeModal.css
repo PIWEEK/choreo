@@ -1,0 +1,29 @@
+.modal h3 {
+  font-size: 0.875rem;
+  font-weight: 400;
+  margin: 0;
+}
+.modal .close {
+  position: absolute;
+  top: 0;
+  right: 10px;
+}
+.modal .pin {
+  display: flex;
+  justify-content: center;
+}
+.pin h4 {
+  font-size: 2.25rem;
+  line-height: 50px;
+  margin: 0;
+  font-weight: 400;
+}
+.pin span {
+  display: inline-block;
+  font-size: 0.875rem;
+  color: #9d9d9d;
+}
+button.copiado {
+  background-color: black;
+  color: #fff;
+}

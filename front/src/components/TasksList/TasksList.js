@@ -30,7 +30,9 @@ const TasksList = ({preselectedTasksList, setPreselectedTasksList, createBoard})
           </div>)}
         </div>
       </div>)}
-      <button onClick={()=>createBoard()}>Guardar</button>
+      <div className="btn-container">
+        <button onClick={()=>createBoard()}>Crear Tablero</button>
+      </div>
     </div>
   )
 }

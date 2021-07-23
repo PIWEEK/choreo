@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import Home from "./pages/Home/Home"
 import NewBoard from "./pages/NewBoard/NewBoard"
+import Board from "./pages/Board/Board";
 import './App.css';
 
 function App() {
@@ -17,6 +18,9 @@ function App() {
           </Route>
           <Route exact path="/new-board">
             <NewBoard />
+          </Route>
+          <Route exact path="/board/:code/:fromcreate?">
+            <Board />
           </Route>
         </Switch>
       </div>
