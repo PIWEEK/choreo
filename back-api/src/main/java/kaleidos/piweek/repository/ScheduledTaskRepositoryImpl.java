@@ -4,8 +4,10 @@ import io.micronaut.core.annotation.Nullable;
 import io.micronaut.transaction.annotation.ReadOnly;
 import kaleidos.piweek.ApplicationConfiguration;
 import kaleidos.piweek.SortingAndOrderArguments;
+import kaleidos.piweek.domain.Board;
 import kaleidos.piweek.domain.ScheduledTask;
 import kaleidos.piweek.domain.Task;
+import kaleidos.piweek.utils.DataTransformations;
 
 import javax.inject.Singleton;
 import javax.persistence.EntityManager;
@@ -14,9 +16,8 @@ import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 
 @Singleton
@@ -70,16 +71,24 @@ public class ScheduledTaskRepositoryImpl implements ScheduledTaskRepository {
   }
   
   @ReadOnly
-  public List<ScheduledTask> findAllByDate(@NotNull LocalDateTime date, @NotNull SortingAndOrderArguments args) {
-    int dayOfTheYear = date.getDayOfYear();
-    int year = date.getYear();
+  public List<ScheduledTask> findAllByDate(@NotNull LocalDateTime localDate, @NotNull Board board, @NotNull SortingAndOrderArguments args) {
+    String qlString = "SELECT st FROM ScheduledTask st WHERE " +
+                      "EXTRACT(DOY FROM st.scheduled_at) = " + localDate.getDayOfYear() + " AND " +
+                      "EXTRACT(YEAR FROM st.scheduled_at) = " + localDate.getYear();
+  
+    Set<Task> boardTasks = board.getTasks();
+    if (!boardTasks.isEmpty()) {
+      List<Long> boardTasksIds = new ArrayList<Long>();
+      for (Task task : board.getTasks()) {
+        boardTasksIds.add(task.getId());
+      }
+      qlString += " AND st.task.id IN " + DataTransformations.idListToJpaParam(boardTasksIds);
+    }
     
-    String qlString = "SELECT st FROM ScheduledTask as st WHERE " +
-                        "EXTRACT(DOY FROM st.scheduled_at) = " + dayOfTheYear + " AND " +
-                        "EXTRACT(YEAR FROM st.scheduled_at) = " + year;
     if (args.getOrder().isPresent() && args.getSort().isPresent() && VALID_PROPERTY_NAMES.contains(args.getSort().get())) {
       qlString += " ORDER BY st." + args.getSort().get() + " " + args.getOrder().get().toLowerCase();
     }
+    
     TypedQuery<ScheduledTask> query = entityManager.createQuery(qlString, ScheduledTask.class);
     query.setMaxResults(args.getMax().orElseGet(applicationConfiguration::getMax));
     args.getOffset().ifPresent(query::setFirstResult);

@@ -27,8 +27,8 @@ flyway:
 
 jpa:
   default:
-    show_sql: false
     properties:
       hibernate:
+        show_sql: false
         hbm2ddl:
           auto: update

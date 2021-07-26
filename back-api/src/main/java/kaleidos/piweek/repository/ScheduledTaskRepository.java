@@ -1,6 +1,7 @@
 package kaleidos.piweek.repository;
 
 import kaleidos.piweek.SortingAndOrderArguments;
+import kaleidos.piweek.domain.Board;
 import kaleidos.piweek.domain.ScheduledTask;
 import kaleidos.piweek.domain.Task;
 
@@ -23,7 +24,7 @@ public interface ScheduledTaskRepository {
   
   List<ScheduledTask> findAll(@NotNull SortingAndOrderArguments args);
   
-  List<ScheduledTask> findAllByDate(@NotNull LocalDateTime date, @NotNull SortingAndOrderArguments args);
+  List<ScheduledTask> findAllByDate(@NotNull LocalDateTime date, @NotNull Board board, @NotNull SortingAndOrderArguments args);
   
   int update(@NotNull Long id, @NotNull String name, @NotNull String iconUrl, @NotNull LocalDateTime scheduled_at,
              Float duration, Boolean isDone, String notes, Task task);
