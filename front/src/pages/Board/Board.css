@@ -42,6 +42,13 @@
 }
 .task-info {
   flex-grow: 2;
+  padding-left: 0.5rem;
+}
+.task-info .task-name {
+  font-size: 1rem;
+}
+.time {
+  font-size: 0.75rem;
 }
 .task-list .img-container {
   padding: 0.5rem;
@@ -51,6 +58,6 @@
   width: 70px;
 }
 .default-profile img {
-  width: 80%;
+  width: 85%;
   height: auto;
 }

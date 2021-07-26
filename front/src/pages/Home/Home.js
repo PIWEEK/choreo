@@ -25,7 +25,7 @@ const Home = () => {
           <label>Escribe el código de acceso a tu tablero</label>
           <div className="code-form">
             <input type="text" value={codeForm} onChange={(e) => setCodeForm(e.target.value)} />
-            <button>Entrar</button>
+            <button onClick={()=>history.push(`board/${codeForm}`)}>Entrar</button>
           </div>
           <div className="separator-container">
             <span className="separator">o</span>

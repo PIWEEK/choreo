@@ -16,6 +16,7 @@ const Board = () => {
     setCopyState(true);
   };
   useEffect(()=>{
+    console.log('AQUI', dataBoard)
     if(fromcreate) {
       setShowPinModal(true);
     }
@@ -27,14 +28,14 @@ const Board = () => {
   return (
     <div className="board">
       <header className="header-board">
-        <h2>{dataBoard.name}</h2>
+        <h2>{dataBoard && dataBoard.name}</h2>
       </header>
       {showPinModal && <PinCodeModal code={code} copyState={copyState} setShowPinModal={setShowPinModal} handleClick={handleClick}/>}
-      {!showPinModal && <div className="task-list">
+      {!showPinModal && dataBoard && <div className="task-list">
         {dataBoard.tasks.map(item => (
         <div className="task">
           <div className="img-container"><img src={item.iconUrl} /></div>
-          {/* <div className="task-info"><div>{item.name}</div> <div>{item.duration}</div></div> */}
+          <div className="task-info"><div className="task-name">{item.name}</div> <div className="time">{item.duration} min</div></div>
           <div className="default-profile"><img src={"/img/avatars/avatar0.png"} /></div>
         </div>)
         )}
