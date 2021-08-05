@@ -1,7 +1,6 @@
 package kaleidos.piweek.controller;
 
 import io.micronaut.context.annotation.Parameter;
-import io.micronaut.core.annotation.Nullable;
 import io.micronaut.core.convert.format.Format;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
@@ -12,13 +11,11 @@ import kaleidos.piweek.domain.Board;
 import kaleidos.piweek.domain.ScheduledTask;
 import kaleidos.piweek.repository.*;
 
-import javax.persistence.NoResultException;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.net.URI;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Set;
 
 @ExecuteOn(TaskExecutors.IO)
 @Controller("/boards/{pinCodeId}/scheduledTasks")
@@ -38,13 +35,11 @@ public class ScheduledTaskController {
   public List<ScheduledTask> listDate(@Parameter String pinCodeId,
                                       @NotNull @Format("dd-MM-yyyy'T'HH:mm:ss") LocalDateTime date,
                                       @Valid SortingAndOrderArguments args) {
-    try {
-      Board board = boardRepository
-               .findByPinCode(pinCodeId)
-               .orElse(null);
-  
-      return scheduledTaskRepository.findAllByDate(date, board, args);
-    } catch(NoResultException e) {
+      
+    List<Board> boardList = boardRepository.findAllByPinCode(pinCodeId);
+    if (boardList.size() > 0) {
+      return scheduledTaskRepository.findAllByDate(date, boardList.get(0), args);
+    } else {
       return null;
     }
   }

@@ -8,7 +8,9 @@ version = "0.1"
 group = "kaleidos.piweek"
 
 repositories {
+    mavenLocal()
     mavenCentral()
+    maven { url "https://jcenter.bintray.com" }
 }
 
 micronaut {
@@ -21,18 +23,28 @@ micronaut {
 }
 
 dependencies {
+    annotationProcessor "io.micronaut:micronaut-inject-java"
+    annotationProcessor "io.micronaut:micronaut-validation"
+//    annotationProcessor("io.micronaut.data:micronaut-data-hibernate-jpa")
+    annotationProcessor("io.micronaut.data:micronaut-data-processor:2.5.0")
+    annotationProcessor "javax.persistence:javax.persistence-api:2.2"
+
+
     implementation("io.micronaut:micronaut-http-client")
     implementation("io.micronaut:micronaut-runtime")
     runtimeOnly("ch.qos.logback:logback-classic")
     implementation("io.micronaut:micronaut-validation")
-    annotationProcessor("io.micronaut.data:micronaut-data-processor")
-    runtimeOnly("org.postgresql:postgresql")
-    implementation("io.micronaut.data:micronaut-data-jdbc")
-    implementation("io.micronaut.sql:micronaut-jdbc-hikari")
-    implementation("io.micronaut.sql:micronaut-hibernate-jpa")
-    annotationProcessor("io.micronaut.data:micronaut-data-hibernate-jpa")
-    implementation("io.micronaut.flyway:micronaut-flyway")
+
     implementation("org.json:json:20090211")
+
+    // database
+    runtimeOnly("org.postgresql:postgresql")
+    implementation "io.micronaut.data:micronaut-data-hibernate-jpa"
+    implementation 'io.micronaut.configuration:micronaut-jdbc-hikari:1.1.0'
+    implementation("io.micronaut.flyway:micronaut-flyway")
+//    implementation("io.micronaut.data:micronaut-data-jdbc")
+
+
 }
 
 

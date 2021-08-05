@@ -69,7 +69,7 @@ public class MainTaskRepositoryImpl implements MainTaskRepository {
   
   @Transactional
   public int update(@NotNull Long id, @NotBlank String name, @NotBlank String iconUrl, Float duration) {
-    return entityManager.createQuery("UPDATE MainTask g SET name = :name, iconurl = :iconUrl where id = :id")
+    return entityManager.createQuery("UPDATE MainTask g SET name = :1, iconurl = :iconUrl where id = :id")
              .setParameter("name", name)
              .setParameter("id", id)
              .setParameter("iconUrl", iconUrl)

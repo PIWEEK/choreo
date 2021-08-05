@@ -6,8 +6,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "people")
@@ -32,14 +31,13 @@ public class Person {
   
   @JsonBackReference
   @ManyToOne
-  @NotNull
   private Board board;
   
   @JsonManagedReference
   @OneToMany(fetch = FetchType.EAGER)
   @OrderBy("id")
   @JoinColumn(name="board_id")
-  private Set<Person> people = new HashSet<>();
+  private List<Person> people =  Collections.emptyList();
   
   public Person() {}
   

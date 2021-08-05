@@ -1,5 +1,6 @@
 package kaleidos.piweek.repository;
 
+import io.micronaut.data.repository.PageableRepository;
 import kaleidos.piweek.SortingAndOrderArguments;
 import kaleidos.piweek.domain.Board;
 import kaleidos.piweek.domain.ScheduledTask;
@@ -10,22 +11,13 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
-public interface ScheduledTaskRepository {
+public interface ScheduledTaskRepository extends PageableRepository<ScheduledTask, Long> {
   
   Optional<ScheduledTask> findById(@NotNull Long id);
-  
-  ScheduledTask save(@NotNull String name, @NotNull String iconUrl, @NotNull LocalDateTime scheduled_at, Float duration,
-            Boolean isDone,  String notes, Task task);
-  
-  ScheduledTask saveWithException(@NotNull String name, @NotNull String iconUrl, @NotNull LocalDateTime scheduled_at, Float duration,
-                         Boolean isDone,  String notes, Task task);
-  
+ 
   void deleteById(@NotNull Long id);
   
-  List<ScheduledTask> findAll(@NotNull SortingAndOrderArguments args);
+  List<ScheduledTask> findAllByTask(@NotNull Task task);
   
   List<ScheduledTask> findAllByDate(@NotNull LocalDateTime date, @NotNull Board board, @NotNull SortingAndOrderArguments args);
-  
-  int update(@NotNull Long id, @NotNull String name, @NotNull String iconUrl, @NotNull LocalDateTime scheduled_at,
-             Float duration, Boolean isDone, String notes, Task task);
 }

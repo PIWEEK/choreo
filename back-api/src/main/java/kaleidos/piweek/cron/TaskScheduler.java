@@ -45,8 +45,7 @@ public class TaskScheduler {
         notYetScheduledTasksIds.add(task.getId());
       }
       boardRepository
-        .findAll(new SortingAndOrderArguments())
-        .stream()
+        .findAll()
         .forEach((board) -> {
           String now = new SimpleDateFormat("dd/M/yyyy hh:mm:ss").format(new Date());
           LOG.info("    Checking board \"{}\": {}", board.getPinCode(),
@@ -59,9 +58,9 @@ public class TaskScheduler {
 
           for(Task task : boardTasks) {
             if (task.getPeriod().contains(today) && notYetScheduledTasksIds.contains(task.getId())) {
-              ScheduledTask scheduledTask = scheduledTaskRepository
-                                              .save(task.getName(), task.getIconUrl(), LocalDateTime.now(),
-                                                task.getDuration(), false, null, task);
+              ScheduledTask scheduledTask = new ScheduledTask(task.getName(), task.getIconUrl(), LocalDateTime.now(),
+                task.getDuration(), false, null, task);
+              scheduledTaskRepository.save(scheduledTask);
               LOG.info("        Scheduling task{} : {}", task.getId(), now);
               }
           }

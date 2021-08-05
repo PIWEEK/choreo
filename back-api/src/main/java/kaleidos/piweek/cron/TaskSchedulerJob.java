@@ -12,7 +12,7 @@ public class TaskSchedulerJob {
     this.taskScheduler = taskScheduler;
   }
   
-  @Scheduled(fixedDelay = "60s")
+  @Scheduled(fixedDelay = "5s")
   void execute() {
     taskScheduler.schedule();
   }

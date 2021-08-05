@@ -1,29 +1,22 @@
 package kaleidos.piweek.repository;
 
-import kaleidos.piweek.SortingAndOrderArguments;
+import io.micronaut.data.repository.PageableRepository;
 import kaleidos.piweek.domain.Board;
 import kaleidos.piweek.domain.Person;
-import kaleidos.piweek.domain.Task;
+import org.json.JSONArray;
 
-import javax.validation.constraints.NotBlank;
+import javax.transaction.Transactional;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
-public interface BoardRepository {
+public interface BoardRepository extends PageableRepository<Board, Long> {
   
   Optional<Board> findById(@NotNull Long id);
   
-  Optional<Board> findByPinCode(@NotNull String pinCode);
-  
-  Board save(@NotBlank String name, @NotBlank String pinCode, Set<Task> tasks, Set<Person> users);
-  
-  Board saveWithException(@NotBlank String name, @NotBlank String pinCode, Set<Task> tasks, Set<Person> users);
+  List<Board> findAllByPinCode(@NotNull String pinCode);
   
   void deleteById(@NotNull Long id);
   
-  List<Board> findAll(@NotNull SortingAndOrderArguments args);
-  
-  int update(@NotNull Long id, @NotBlank String name, Set<Task> tasks, Set<Person> people);
+  List<Person> setBoardPeople(JSONArray people, Board board);
 }

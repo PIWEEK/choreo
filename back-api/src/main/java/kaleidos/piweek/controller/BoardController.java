@@ -1,28 +1,18 @@
 package kaleidos.piweek.controller;
 
 import io.micronaut.http.HttpResponse;
-import io.micronaut.http.HttpStatus;
-import io.micronaut.http.annotation.Body;
-import io.micronaut.http.annotation.Controller;
-import io.micronaut.http.annotation.Get;
-import io.micronaut.http.annotation.Post;
+import io.micronaut.http.annotation.*;
 import io.micronaut.scheduling.TaskExecutors;
 import io.micronaut.scheduling.annotation.ExecuteOn;
-import kaleidos.piweek.SortingAndOrderArguments;
 import kaleidos.piweek.controller.command.BoardSaveCommand;
-import kaleidos.piweek.domain.Board;
-import kaleidos.piweek.domain.MainTask;
-import kaleidos.piweek.domain.Person;
-import kaleidos.piweek.domain.Task;
-import kaleidos.piweek.repository.BoardRepository;
-import kaleidos.piweek.repository.MainTaskRepository;
-import kaleidos.piweek.repository.PersonRepository;
-import kaleidos.piweek.repository.TaskRepository;
-import kaleidos.piweek.utils.JsonParser;
+import kaleidos.piweek.cron.TaskScheduler;
+import kaleidos.piweek.domain.*;
+import kaleidos.piweek.repository.*;
 import kaleidos.piweek.utils.RandomStrings;
 
-import javax.persistence.NoResultException;
+import javax.transaction.Transactional;
 import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
 import java.net.URI;
 import java.util.HashSet;
 import java.util.List;
@@ -34,63 +24,116 @@ import java.util.Set;
 public class BoardController {
   
   protected final BoardRepository boardRepository;
-  
   protected final MainTaskRepository mainTaskRepository;
-  
   protected final TaskRepository taskRepository;
-  
+  protected final ScheduledTaskRepository scheduledTaskRepository;
   protected final PersonRepository personRepository;
+  protected final TaskScheduler taskScheduler;
   
-  public BoardController(BoardRepository boardRepository, MainTaskRepository mainTaskRepository, TaskRepository taskRepository, PersonRepository personRepository) {
+  public BoardController(BoardRepository boardRepository, MainTaskRepository mainTaskRepository,
+                         TaskRepository taskRepository, ScheduledTaskRepository scheduledTaskRepository, PersonRepository personRepository, TaskScheduler taskScheduler) {
     this.boardRepository = boardRepository;
     this.mainTaskRepository = mainTaskRepository;
     this.taskRepository = taskRepository;
+    this.scheduledTaskRepository = scheduledTaskRepository;
     this.personRepository = personRepository;
+    this.taskScheduler = taskScheduler;
   }
   
   @Get("/{pinCode}")
   public Board show(String pinCode) {
-    try {
-      return boardRepository
-             .findByPinCode(pinCode)
-             .orElse(null);
-    } catch(NoResultException e) {
+    List<Board> boardList = boardRepository.findAllByPinCode(pinCode);
+    if (boardList.size() > 0) {
+      return boardList.get(0);
+    } else {
       return null;
     }
   }
   
-  @Get(value = "/{?args*}")
-  public List<Board> list(@Valid SortingAndOrderArguments args) {
-    return boardRepository.findAll(args);
+  @Get(value = "/")
+  public Iterable<Board> list() {
+    return boardRepository.findAll();
   }
   
   @Post
   public HttpResponse<Board> save(@Body @Valid BoardSaveCommand cmd) {
     // TODO: avoid reusing the same pinCode between boards
     String pinCode = RandomStrings.getPinCode();
+    
     Set<Task> tasks = new HashSet<>();
-  
+    
     for (Long taskId : cmd.getTaskIds()) {
       Optional<MainTask> optMainTask = mainTaskRepository.findById(taskId);
       if (optMainTask.isPresent()) {
         MainTask mainTask = optMainTask.get();
-        Task task = taskRepository.save(mainTask.getName(), mainTask.getIconUrl(), mainTask.getDuration(),
-          true, mainTask, null);
+        Task task = new Task(mainTask.getName(), mainTask.getIconUrl(), mainTask.getDuration(), true,
+          mainTask, "1,2,3,4,5,6,7");
+        taskRepository.save(task);
         tasks.add(task);
       }
     }
   
-    Board board = boardRepository.save(cmd.getName(), pinCode, tasks, null);
+    Board board = new Board();
+    List<Person> people = boardRepository.setBoardPeople(cmd.getPeople(), board);
+    personRepository.saveAll(people);
     
-    Set<Person> boardPeople = personRepository.saveAll(JsonParser.getListOfPerson(cmd.getPeople(), board));
-  
-    for(Person person : boardPeople){
-      boardRepository.update(board.getId(), board.getName(), board.getTasks(), boardPeople);
-    }
+    board.setPinCode(pinCode);
+    board.setName(cmd.getName());
+    board.setPeople(people);
+    board.setTasks(tasks);
+    boardRepository.save(board);
   
     return HttpResponse
              .created(board)
              .headers(headers -> headers.location(location(board.getId())));
+  }
+  
+  @Patch("/{pinCode}")
+  @Transactional
+  public HttpResponse<Board> update(@NotBlank String pinCode, @Body @Valid BoardSaveCommand cmd) {
+    
+    List<Board> boardList = boardRepository.findAllByPinCode(pinCode);
+    if (boardList.size() == 0) {
+      return HttpResponse.notFound();
+    }
+    
+    Board board = boardList.get(0);
+    Set<Task> tasks = new HashSet<>();
+    Set<Task> oldBoardTasks = board.getTasks();
+    List<Person> oldBoardPeople = board.getPeople();
+  
+    for (Task oldTask : oldBoardTasks) {
+      List<ScheduledTask> oldSchTasks = scheduledTaskRepository.findAllByTask(oldTask);
+      for (ScheduledTask oldSchTask : oldSchTasks) {
+        scheduledTaskRepository.delete(oldSchTask);
+      }
+      taskRepository.delete(oldTask);
+    }
+  
+    for (Person oldPerson : oldBoardPeople) {
+      personRepository.delete(oldPerson);
+    }
+    
+    for (Long taskId : cmd.getTaskIds()) {
+      Optional<MainTask> optMainTask = mainTaskRepository.findById(taskId);
+      if (optMainTask.isPresent()) {
+        MainTask mainTask = optMainTask.get();
+        Task task = new Task(mainTask.getName(), mainTask.getIconUrl(), mainTask.getDuration(), true,
+          mainTask, "1,2,3,4,5,6,7");
+        taskRepository.save(task);
+        tasks.add(task);
+      }
+    }
+  
+    List<Person> people = boardRepository.setBoardPeople(cmd.getPeople(), board);
+    Iterable<Person> boardPeople = personRepository.saveAll(people);
+    
+    board.setName(cmd.getName());
+    board.setTasks(tasks);
+    board.setPeople(people);
+    boardRepository.save(board);
+   
+    return HttpResponse.ok(board);
   }
   
   protected URI location(Long id) {

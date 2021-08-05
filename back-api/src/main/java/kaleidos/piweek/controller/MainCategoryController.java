@@ -31,8 +31,8 @@ public class MainCategoryController {
   }
   
   @Get(value = "/{?args*}")
-  public List<MainCategory> list(@Valid SortingAndOrderArguments args) {
-    return mainCategoryRepository.findAll(args);
+  public Iterable<MainCategory> list(@Valid SortingAndOrderArguments args) {
+    return mainCategoryRepository.findAll();
   }
   
   protected URI location(Long id) {

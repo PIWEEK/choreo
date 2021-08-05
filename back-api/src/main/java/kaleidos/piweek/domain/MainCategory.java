@@ -24,7 +24,7 @@ public class MainCategory {
   @JsonManagedReference
   @OneToMany(fetch = FetchType.EAGER)
   @OrderBy("id")
-  @JoinColumn(name="mainCategory_id")
+  @JoinColumn(name="main_category_id")
   private Set<MainTask> tasks = new HashSet<>();
   
   public MainCategory() {}

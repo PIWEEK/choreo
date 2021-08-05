@@ -15,7 +15,7 @@ public class BoardSaveCommand {
   
   private List<Long> taskIds;
   
-  private JSONArray people ;
+  private JSONArray people;
   
   public BoardSaveCommand() {
   }

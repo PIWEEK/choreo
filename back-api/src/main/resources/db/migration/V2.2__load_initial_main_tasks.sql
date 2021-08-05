@@ -1,4 +1,4 @@
-INSERT INTO main_tasks (id, name, iconUrl, duration, maincategory_id) VALUES
+INSERT INTO main_tasks (id, name, icon_url, duration, main_category_id) VALUES
 -- Tareas del día a día
     (1, 'Barrer / Pasar aspiradora', 'http://localhost:8080/static/1/1_barrer_aspiradora.svg', 30, 1),
     (2, 'Fregar el suelo', 'http://localhost:8080/static/1/2_fregar.svg', 30, 1),

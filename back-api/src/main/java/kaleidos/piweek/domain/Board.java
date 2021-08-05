@@ -4,8 +4,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "boards")
@@ -30,11 +29,11 @@ public class Board {
   @OneToMany(fetch = FetchType.EAGER)
   @OrderBy("id")
   @JoinColumn(name="board_id")
-  private Set<Person> people = new HashSet<>();
+  private List<Person> people =  Collections.emptyList();
   
   public Board() {}
   
-  public Board(String name, String pinCode, Set<Task> tasks, Set<Person> people) {
+  public Board(String name, String pinCode, Set<Task> tasks, List<Person> people) {
     this.id = id;
     this.name = name;
     this.pinCode = pinCode;
@@ -42,7 +41,7 @@ public class Board {
     this.people = people;
   }
   
-  public Board(String name, Set<Task> tasks, Set<Person> people) {
+  public Board(String name, Set<Task> tasks, List<Person> people) {
     this.name = name;
     this.tasks = tasks;
     this.people = people;
@@ -91,11 +90,11 @@ public class Board {
     this.pinCode = pinCode;
   }
   
-  public Set<Person> getPeople() {
+  public List<Person> getPeople() {
     return people;
   }
   
-  public void setPeople(Set<Person> people) {
+  public void setPeople(List<Person> people) {
     this.people = people;
   }
 }

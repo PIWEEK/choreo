@@ -27,6 +27,7 @@ flyway:
 
 jpa:
   default:
+    packages-to-scan: kaleidos.piweek.domain
     properties:
       hibernate:
         show_sql: false
